@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="headerDiv" style="position:relative; height:8%; width:100%; background-color:#03296D; z-index:1">
+        <h1 style="color:white;position:relative;top:10%; left:2%">Food Scanner</h1>
+      </div>
+      <div id="vid_container">
+        <a id="btn-scan-qr"></a>
+          <canvas hidden="" id="qr-canvas"></canvas>
+      </div>
+    </div>
+      <div id="gui_controls" style="text-align:Center">
+        <div id="bottomCamera" style="position:relative; height:3%; width:100%; background-color:#F9C506; z-index:1"></div>
+        <div id="listID" style="font-family: 'Noto Sans', 'Helvetica'; font-size: 20px; color:  #03296D; position:relative; left: calc(50% - 60px); ">
+          <table id="itemTable" style="font-family: 'Noto Sans', 'Helvetica'; font-size: 20px; color:  #03296D;">
+            <tr style="font-size:40px">
+              <th style="text-align:center">Items</th>
+            </tr>
+      
+          </table>
+          <button id="orderFin">Finish Order</button>
+        </div>
+      </div>
+    </div>
+    <script src="./src/qrCodeScanner.js"></script>
+  </body>
+</html>

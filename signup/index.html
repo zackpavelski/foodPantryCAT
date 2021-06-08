@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../css/out/default.css">
+        <link rel="stylesheet" type="text/css" href="../../css/out/login.css">
+        <title>John Hopkins Food Pantry - Sign Up</title>
+    </head>
+
+    <script type="module" src="../js/out/signup.js"></script>
+
+    <body>
+        <div class="bg">
+            <div class="wrapper">
+                <br>
+                <div class="clear-block">
+                    <a href="/"><img src="../../img/hopkins-logo.svg"/></a>
+                </div>
+                
+                <br>
+                <div class="block">
+                    <div id="signup-form">
+                        <form class="center">
+                            <div id="alert" style="display:none">
+                                <span id="close-alert-btn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                <strong>Error:</strong> <div id="alert-message"></div>
+                            </div>
+                            <h1>Sign Up</h1>
+                            <input class="text-input" type="text" placeholder="First Name" id="fname-field" pattern="[a-zA-Z]+" required/><br><br>
+                            <input class="text-input" type="text" placeholder="Last Name" id="lname-field" pattern="[a-zA-Z]+" required/><br><br>
+                            <input class="text-input" type="email" placeholder="E-Mail" id="email-field" required/><br><br>
+                            <input class="text-input" type="password" placeholder="Password" id="password-field" required/><br><br>
+                            <input class="thin-button" type="submit" id="submit-btn" value="Submit"/>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <div class="block">
+                    <div class="center">
+                        <h1>Have an account?</h1>
+                        <a href="/login" style="color:black">Log In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
