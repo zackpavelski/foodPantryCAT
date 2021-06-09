@@ -1,8 +1,9 @@
+/*for search boxes and button */
 form {
   background-color: #4654e1;
-  width: 350px;
+  width: 300px;
   height: 44px;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,11 +11,11 @@ form {
 
 input {
   all: unset;
-  font: 16px system-ui;
+  font: 14px system-ui;
   color: #fff;
   height: 100%;
   width: 100%;
-  padding: 6px 10px;
+  padding: 16px 4px;
 }
 
 ::placeholder {
@@ -23,12 +24,20 @@ input {
 }
 
 button {
-  all: unset;
-  cursor: pointer;
-  width: 44px;
-  height: 44px;
+    all: unset;
+    cursor: pointer;
+    width: 80px;
+    height: 44px;
+    padding: 10px;
+    color: #d9eaff;
+    font-weight: bold;
 }
-
+text {
+    color: white;
+  margin: 0;
+  padding: 5px;
+  font-weight: bold;
+}
 svg {
   color: #fff;
   fill: currentColor;
@@ -37,3 +46,23 @@ svg {
   padding: 10px;
 }
 
+h2 {
+      font: 20px system-ui;
+      font-weight: bold;
+}
+
+/*for table*/
+#t01 {
+  width: 20%;
+  background-color: #f1f1c1;
+}
+#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+  background-color: #fff;
+}
+#t01 th {
+  color: white;
+  background-color: black;
+}

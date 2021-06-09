@@ -19,8 +19,9 @@
 
     <body>
         <h1>Admin</h1>
+        <h2>Search Students</h2>
         <form id="form" role="search">
-  <input type="search" id="firstName" name="q"
+    <text>Enter:</text> <input type="search" id="firstName" name="q"
    placeholder="First Name"
    aria-label="Search through site content">
 
@@ -30,7 +31,23 @@
   <button id="submit" onclick="pull()">Search</button>
 </form>
 
+<br>
 
+<h2>Items Checked Out by (name)</h2>
+<table id="t01">
+  <tr>
+    <th>Name</th>
+    <th>Item</th>
+    <th>Macro</th>
+    <th>Qty</th>
+  </tr>
+  <tr>
+    <td>John Smith</td>
+    <td>Macaroni</td>
+    <td>Pasta</td>
+    <td>99</td>
+  </tr>
+</table>
 
 
 <!--<form role="search" id="form">
