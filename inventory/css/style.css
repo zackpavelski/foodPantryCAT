@@ -25,7 +25,9 @@ body{
 {
   background-color: #00263b
 }
-
+h2{
+    padding:5px;
+}
 
 /* Form issuing and receiving  */
 
@@ -271,27 +273,31 @@ body{
 }
 #checkOutTable tr:nth-child(odd) {
   background-color: /*#fff*/rgba(114, 114, 113, 0.2);
-    padding: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
 }
-#checkOutTable th {/*
+#checkOutTable th {
   color: white;
-  background-color: black;*/
+  background-color: gray;
   font-size: 18px;
-    text-align: left;
-    padding: 10px 10px 10px 10px;
+  text-align: left;
+  padding: 5px 5px 5px 5px;
 }
 
 #inventoryTable {
   width: 90%;
-  background-color: #0B2972;
+  border-radius: 15px;
 }
 #inventoryTable tr:nth-child(even) {
   background-color: #eee;
 }
 #inventoryTable tr:nth-child(odd) {
-  background-color: #fff;
+  background-color: lightgray;
 }
 #inventoryTable th {
-  color: #F9C506;
-  background-color: #0B2972;
+  font-size: 16px;
+    text-align: left;
+    padding: 5px 5px 5px 5px;  
+    background-color: #996e7c;
+    color: white;
+
 }
