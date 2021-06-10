@@ -19,4 +19,16 @@ function pull(){
     client.close();
   });
 
+  /*
+  for inserting data into table cells:
+  var inner = document.getElementById('itemTable').insertRow();
+      var cell1 = inner.insertCell(0);
+      cell0.innerHTML = res;
+      var cell1 = inner.insertCell(1);
+      cell1.innerHTML = res;
+      var cell1 = inner.insertCell(2);
+      cell2.innerHTML = res;
+      var cell1 = inner.insertCell(3);
+      cell3.innerHTML = res;*/
+
 }

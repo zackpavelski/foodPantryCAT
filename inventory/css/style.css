@@ -1,5 +1,9 @@
 body{
-    background: #eeeeee !important;
+    
+    background: url("resources/background_red_light.png");
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /*-moz-osx-font-smoothing: grayscale;   */
 }
 .head{
     font-size: 18px !important;
@@ -21,14 +25,22 @@ body{
     border:0px !important;
     outline:0px !important;
 }
-.navbar navbar-expand-lg navbar-dark bg-dark
-{
-  background-color: #00263b;
-}
-h2{
-    padding:5px;
-}
 
+
+h2{
+    color: #526e86;
+    padding: 5px 5px 5px 5px;  
+    display:inline;
+    font-size:25px;
+
+}
+h4{
+    color: #89a9c4;
+    display:inline;
+    padding: 5px 5px 5px 5px;  
+    font-size:25px;
+
+}
 h3{
      padding: 5px;
      font-weight: bold;
@@ -200,7 +212,7 @@ h3{
   /* form issuing and receiveing end */
 
   body {
-    background-color:rgba(0,0,0,0.1);
+    background-image:url(resources\background_red_light.png);
   }
   .login-one-form {
     transform:translate(-50%, -50%);
@@ -259,14 +271,18 @@ h3{
   }
 
   /*table formatting*/
+  table {
+    border-collapse:separate;
+    border:solid whitesmoke 2px;
+    border-radius:6px;
+    -moz-border-radius:6px;
+}
 .table_background {
     background-color: white;
     margin-left: .5vw;
     margin-right: 3vw;
     margin-bottom: 3vh;
     margin-top: 1vh;
-    box-shadow: 0px 0px 10px rgba(114, 114, 113, 0.5);
-    border-radius: 15px;
 }
 
   #checkOutTable {
@@ -274,7 +290,6 @@ h3{
     font-style: normal;
     border-collapse: collapse;
     width: 40%;
-    border-radius: 15px;
 }
 #checkOutTable tr:nth-child(even) {
   background-color: /*#eee;*/#eff2f5
@@ -285,7 +300,7 @@ h3{
 }
 #checkOutTable th {
   color: white;
-  background-color: gray;
+  background-color: #b86451; /*header of checkout table*/
   font-size: 18px;
   text-align: left;
   padding: 5px 5px 5px 5px;
@@ -293,7 +308,9 @@ h3{
 
 #inventoryTable {
   width: 90%;
-  border-radius: 15px;
+  font-weight: 400;
+    font-style: normal;
+    border-collapse: collapse;
 }
 #inventoryTable tr:nth-child(even) {
   background-color: #eee;
@@ -305,7 +322,7 @@ h3{
   font-size: 16px;
     text-align: left;
     padding: 5px 5px 5px 5px;  
-    background-color: #996e7c;
+    background-color: #15446e;
     color: white;
 
 }
