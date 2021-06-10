@@ -1,16 +1,15 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
 
-<head>
-    <title>Store Management(STC)</title>
-    <!-- Required meta tags -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>John Hopkins Food Pantry - Dashboard</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!-- Custom Stylesheet   -->
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
+        <style>
         /*body {
               background: "C:\Users\miltnerc\Desktop\GitHub\foodPantryCAT\login_signup\resources\background_red_light.jpg";  /*background color!*/
         body {
@@ -48,14 +47,14 @@
         .bg-{ /*attempt to change the color of the navbar*/
   background: #00263b;
 }
-        
-    </style>
-</head>
+        </style>
+    </head>
 
-<body class="body">
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand head" href="index.html"><img src="C:/Users/miltnerc/Desktop/foodPantryCAT/inventory/resources/logo_Stroke.png" alt="logo">
+    <script type="module" src="../js/out/dashboard.js" defer></script>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand head" href=..\dashboard\index.html><img src="C:/Users/miltnerc/Desktop/foodPantryCAT/inventory/resources/logo_Stroke.png" alt="logo">
 </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -90,66 +89,17 @@
             </div>
         </div>
     </nav>
-    <!-- navbar ends -->
-    <div class="container" style="margin-left:-.7%">
-        <h2>Search Students<h4>&nbsp/&nbspLakewood(school)</h4></h2>
-        <form id="form" role="search">
-            <text>Enter:</text> <input type="search" id="firstName" name="q" placeholder="First Name" aria-label="Search through site content">
-
-            <input type="form" id="lastName" name="q" placeholder="Last Name" aria-label="Search through site content">
-            <button id="submit" onclick="pull()">Search</button>
-        </form>
-
-        <br>
-
-        <h2>Items Checked Out by (name)</h2>
-        <table class="table_background" id="checkOutTable" >
-            <tr>
-                <th>Name</th>
-                <th>Item</th>
-                <th>Macro</th>
-                <th>Qty</th>
-            </tr>
-            <tr>
-                <td>&nbspJohn Smith</td>
-                <td>&nbspMacaroni</td>
-                <td>&nbspPasta</td>
-                <td>&nbsp99</td>
-            </tr>
-            <tr>
-                <td>&nbspCasey Miltner</td>
-                <td>&nbspCanned Corn</td>
-                <td>&nbspVegetables</td>
-                <td>&nbsp2</td>
-            </tr>
-        </table>
-
-        <h2>Inventory</h2>
-        <table class="table_background" id="inventoryTable" >
-            <tr>
-                <th>ID</th>
-                <th>Item Name</th>
-                <th>Category</th>
-                <th>Qty</th>
-            </tr>
-            <tr>
-                <td>60bf79cd514cc0c8a230ff7b</td>
-                <td>Kraft Mac n Cheese</td>
-                <td>Packaged Entree</td>
-                <td>99</td>
-            </tr>
-            <tr>
-                <td>478234723647635fjsfhdssd</td>
-                <td>Macaroni</td>
-                <td>Pasta</td>
-                <td>99</td>
-            </tr>
-
-        </table>
-
-    </div>
-
-    <!-- Optional JavaScript -->
+        <div class="wrapper">
+            <h2>Lakewood Pantry<h4>&nbsp/&nbspMy&nbspDashboard</h4></h2>
+            <br>
+            <br>
+            <div class="center">
+                <a href="/scanner" class="button">Scan Items</a>
+            </div>
+            <br>
+            </canvas>
+        </div>
+        <!-- Optional JavaScript -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.3.1.slim.min.js"></script>
@@ -157,6 +107,5 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- end of javascript files -->
 
-</body>
-
+    </body>
 </html>
