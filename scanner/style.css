@@ -6,7 +6,7 @@ yellow: #F9C506;*/
 body {
   margin: 0px;
   padding: 0px;
-  background: rgb(255, 255, 255);
+  background:;
 }
 
 #vid_container {
@@ -150,14 +150,14 @@ button {
 
 #orderFin{
   width: 200px;
-  background-color: #F9C506;
+  background-color: #ffc600;
   color: white;
   font-size: 16px;
   border-radius: 30px;
   border: none;
   padding: 15px 20px;
   text-align: center;
-  box-shadow: 0 5px 10px 0 #F9C506;
+  box-shadow: 0 5px 10px 0 #ffffff;
   position: relative;
   left: calc(50% - 235px);
 }
