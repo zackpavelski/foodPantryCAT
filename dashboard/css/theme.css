@@ -3165,9 +3165,10 @@ section {
 }
 
 .overview-item--c3 {
-    background-image: -moz-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
+    background: url("../imgs/gears.png");
+    /*background-image: -moz-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
     background-image: -webkit-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
-    background-image: -ms-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
+    background-image: -ms-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);*/
 }
 
 .overview-item--c4 {
@@ -3210,11 +3211,13 @@ section {
 
 .overview-box .text h2 {
     font-weight: 300;
-    color: #fff;
-    font-size: 36px;
+    color: black;
+    font-size: 45px;
     line-height: 1;
     margin-top: 50px;
     margin-left:60%;
+    -webkit-text-fill-color:white;
+    -webkit-text-stroke-width: 1px;
 }
 .center
 .overview-box .text span { /* small text in buttons*/
