@@ -3212,9 +3212,10 @@ section {
     font-size: 36px;
     line-height: 1;
     margin-bottom: 5px;
+    margin-left:60%;
 }
-
-.overview-box .text span {
+.center
+.overview-box .text span { /* small text in buttons*/
     font-size: 18px;
     color: rgba(255, 255, 255, 0.6);
 }
