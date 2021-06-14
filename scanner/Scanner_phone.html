@@ -13,17 +13,17 @@
   </head>
   <body>
     <div id="container">
-      <div id="headerDiv" style="position:relative; height:8%; width:100%; background-image: url(img/test.png); z-index:10">
-        <h1 style="color:white;position:relative;top:10%; left:30%">Food Scanner</h1>
+      <div id="headerDiv" style="position:relative; height:10vw; width:100%; background-image: url(img/test.png); z-index:10">
+        <h1 style="color:white;position:relative;top:15%; left:30%; font-size:5vw;">Food Scanner</h1>
       </div>
-      <div id="vid_container" style="z-index: 2;">
+      <div id="vid_container" style="z-index: 2; width: auto; height: auto;">
         <a id="btn-scan-qr"></a>
-          <canvas hidden="" id="qr-canvas"></canvas>
+          <canvas hidden="" id="qr-canvas" style="margin: auto;"></canvas>
       </div>
     </div>
       <div id="gui_controls" style="text-align:Center">
         
-        <div id="bottomCamera" style="position:relative; height:3%; width:100%; background-color:#ffc600; z-index:10"></div>
+        <div id="bottomCamera" style="position:relative; height:3%; width:100vw; background-color:#ffc600; z-index:10;"></div>
         
         <div id="listID" style="font-family: 'Noto Sans', 'Helvetica'; font-size: 20px; color:  #236dad; position:relative; left: calc(50% - 60px); ">
           
@@ -37,7 +37,7 @@
           <button id="orderFin">Finish Order</button>
           
         </div>
-        <img src="img/test.png" style="z-index: -10; margin-top: -150;">
+        <img src="img/test.png" style="z-index: -10; margin-top: -15vh; margin-right: 30%; width: 100vw">
       </div>
     </div>
     <script src="./src/qrCodeScanner.js"></script>
