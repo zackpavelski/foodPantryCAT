@@ -13,25 +13,32 @@
   </head>
   <body>
     <div id="container">
-      <div id="headerDiv" style="position:relative; height:8%; width:100%; background-color:#236dad; z-index:1">
-        <h1 style="color:white;position:relative;top:10%; left:40%">Food Scanner</h1>
+      <div id="headerDiv" style="position:relative; height:10vw; width:100%; background-image: url(img/test.png); z-index:10">
+        <h1 style="color:white;position:relative;top:15%;font-size:5vw; width:100vw; text-align: center;">Food Scanner</h1>
       </div>
-      <div id="vid_container">
+      <div id="topCamera" style="position:relative; height:10px; width:100vw; background-color:#ffc600; z-index:10;margin-top: 0vh;"></div>
+      <div id="vid_container" style="z-index: 2; width: auto; height: auto;">
         <a id="btn-scan-qr"></a>
-          <canvas hidden="" id="qr-canvas"></canvas>
+          <canvas hidden="" id="qr-canvas" style="margin-top: 11vh; width: 200w;"></canvas>
       </div>
     </div>
       <div id="gui_controls" style="text-align:Center">
-        <div id="bottomCamera" style="position:relative; height:3%; width:100%; background-color:#ffc600; z-index:1"></div>
-        <div id="listID" style="font-family: 'Noto Sans', 'Helvetica'; font-size: 20px; color:  #236dad; position:relative; left: calc(50% - 60px); ">
-          <table id="itemTable" style="font-family: 'Noto Sans', 'Helvetica'; font-size: 20px; color:  #236dad;">
-            <tr style="font-size:40px">
-              <th style="text-align:center">Items</th>
+        
+        <div id="bottomCamera" style="position:relative; height:3%; width:100vw; background-color:#ffc600; z-index:10; margin-bottom: 10vh;"></div>
+        
+        <div id="listID" style="font-family: 'Noto Sans', 'Helvetica'; font-size: 20px; color:  #236dad; position:relative; left: calc(50% - 60px); margin-top: -4vh; ">
+          
+          <table id="itemTable" style="font-family: 'Noto Sans', 'Helvetica'; font-size: 40px; color: white;">
+            
+            <tr style="font-size:50px;">
+              <th style="text-align:center;font-size: 5vw;margin-top: -20vh;">Items</th>
             </tr>
-      
+            
           </table>
           <button id="orderFin">Finish Order</button>
+          
         </div>
+        <img src="img/test.png" style="z-index: -10; margin-top: -22vh;width: 100vw">
       </div>
     </div>
     <script src="./src/qrCodeScanner.js"></script>
