@@ -1,5 +1,6 @@
 body{
-    background: #e5e5e5;
+    
+    background: url("resources/background_red_light.png");
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   /*-moz-osx-font-smoothing: grayscale;   */
@@ -24,9 +25,7 @@ body{
     border:0px !important;
     outline:0px !important;
 }
-.section__content--p30 {
-    padding: 15px 30px;
-}
+
 
 h2{
     color: #526e86;
@@ -212,10 +211,9 @@ h3{
 
   /* form issuing and receiveing end */
 
- .page-container {
-    background: #e5e5e5;
-    padding-left: 0px;
-}
+  body {
+    background-image:url(resources\background_red_light.png);
+  }
   .login-one-form {
     transform:translate(-50%, -50%);
     top:50%;
