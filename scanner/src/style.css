@@ -211,9 +211,6 @@ h3{
 
   /* form issuing and receiveing end */
 
-  body {
-    background-image:url(resources\background_red_light.png);
-  }
   .login-one-form {
     transform:translate(-50%, -50%);
     top:50%;
