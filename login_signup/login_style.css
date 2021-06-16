@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .body{
-  background-image: "C:\Users\miltnerc\Documents\GitHub\foodPantryCAT\login_signup\resources\background_red.jpg";
+  background-image: "../qrcodegenerator/img/test.png";
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -125,7 +125,7 @@ border-radius:30px;
   color: #41B3A3;
 }
 body {
-  background: url("resources/background_red.jpg");
+  background: url("../qrcodegenerator/img/test.png");
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
