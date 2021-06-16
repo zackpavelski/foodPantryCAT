@@ -3158,14 +3158,14 @@ section {
 }
 
 .overview-item--c2 {
-    background: url("../imgs/students2.jpg");
+    background: url("../imgs/students3.jpg");
     /*background-image: -moz-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
     background-image: -webkit-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
     background-image: -ms-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);*/
 }
 
 .overview-item--c3 {
-    background: url("../imgs/gears.png");
+    background: url("../imgs/gears4.png");
     /*background-image: -moz-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
     background-image: -webkit-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
     background-image: -ms-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);*/
@@ -3207,6 +3207,8 @@ section {
 .overview-box .text {
     font-weight: 300;
     display: inline-block;
+    margin-top: 50px;
+    margin-left: 130px;
 }
 
 .overview-box .text h2 {
@@ -3215,7 +3217,6 @@ section {
     font-size: 45px;
     line-height: 1;
     margin-top: 50px;
-    margin-left:60%;
     -webkit-text-fill-color:white;
     -webkit-text-stroke-width: 1px;
 }
