@@ -1,8 +1,8 @@
 body {
 	font-family: arial, sans-serif;
 	margin: 0 auto;
-	max-width: 1240px;
 	background: #e5e5e5;
+	max-width:100%;
 }
 
 
@@ -23,8 +23,9 @@ h2 {
 }
 
 main {
-	padding: 0 40px;
+	padding: 0 0 100px 300px;
 	padding-bottom: 40px;
+	max-width: 1340px;
 }
 
 #photo {
