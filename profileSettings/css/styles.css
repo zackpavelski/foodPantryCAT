@@ -2,41 +2,10 @@ body {
 	font-family: arial, sans-serif;
 	margin: 0 auto;
 	max-width: 1240px;
+	background: #e5e5e5;
 }
 
-header {
-	background-color: #1b5589;
-	padding: 10px 40px;
-}
 
-.logo, nav {
-	display: inline-block;
-}
-
-header ul{
-	display: flex;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-.ml-auto {
-	display: flex;
-	justify-content: center;
-}
-
-header li {
-	margin-left: 20px;
-}
-
-header a {
-	color: #8ca2b5;
-}
-
-.link:hover, .link:active, .active {
-	color: #ffffff;
-	text-decoration: none;
-}
 
 h1 {
 	text-align: center;
