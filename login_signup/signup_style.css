@@ -124,7 +124,7 @@ border-radius:30px;
   color: #EF3B3A;
 }
 body {
-  background: url("resources/background_red.jpg");/* #76b852;  fallback for old browsers */
+  background: url("../qrcodegenerator/img/background_blue.png");/* #76b852;  fallback for old browsers */
   /*background: -webkit-linear-gradient(right, #76b852, #8DC26F);
   background: -moz-linear-gradient(right, #76b852, #8DC26F);
   background: -o-linear-gradient(right, #76b852, #8DC26F);
