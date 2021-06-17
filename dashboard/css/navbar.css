@@ -8,6 +8,10 @@ body{
 .head{
     font-size: 18px !important;
 }
+	.qr-code {
+	max-width: 300px;
+	margin: 10px;
+	}
 .content {
     padding: 20px;
     min-height: 100%;
