@@ -9,12 +9,16 @@
     <meta
       name="viewport"
       content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="navbar.css" />
         <link rel="stylesheet" type="text/css" href="style.css" />
+    
   </head>
+  
   <body>
+        <div class="page-container">
     <!--navbar start-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e5e5e5;">
-        <a class="navbar-brand head" href="index.html"><img src="..\scanner\img\logo_Stroke.png" alt="logo" width="auto" height="95vh" style="object-fit: contain;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+        <a class="navbar-brand head" href="index.html"><img src="..\scanner\img\logo_Stroke.png" alt="logo" width="auto" height="auto" style="object-fit: contain;">
 </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
             aria-expanded="false" aria-label="Toggle navigation" style="margin-left: 70vw;">
@@ -34,7 +38,7 @@
     <!--navbar ends-->
     <div id="container">
       <div id="headerDiv" style="position:relative; height:10vw; width:100%; background-image: url(img/background_blue.png); z-index:10">
-        <h1 style="color:white;position:relative;top:15%;font-size:5vw; width:100vw; text-align: center;">Food Scanner</h1>
+        <h1 style="color:white;top:15%;font-size:5vw; width:100vw; text-align: center;">Food Scanner</h1>
       </div>
       <div id="topCamera" style="position:relative; height:10px; width:100vw; background-color:#ffc600; z-index:10;margin-top: 0vh;"></div>
       <div id="vid_container" style="z-index: 2; width: auto; height: auto;">
@@ -62,4 +66,5 @@
     </div>
     <script src="./src/qrCodeScanner.js"></script>
   </body>
+  </div>
 </html>

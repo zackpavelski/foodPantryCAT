@@ -11,10 +11,15 @@ body {
 }
 
 #vid_container {
-  position: fixed;
+  position: relative; /*was absolute, but broke navbar.*/
   top: 0;
   left: 0;
 }
+.page-container {
+    background: #e5e5e5;
+    padding-left: 0px;
+}
+
 
 #video {
   width: 100%;
@@ -160,7 +165,6 @@ button {
   text-align: center;
   /*box-shadow: 0 5px 10px 0 #F9C506;*/ /*Use to add a box shadow*/
   position: relative;
-  left: calc(-15vW);
 }
 td {
   text-align:left;
