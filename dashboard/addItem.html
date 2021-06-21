@@ -38,28 +38,11 @@
 </head>
 
 <body class="animsition">
-    <div class="page-wrapper">
-        <!-- HEADER MOBILE-->
-        <header class="header-mobile d-block d-lg-none">
-            <div class="header-mobile__bar">
-                <div class="container-fluid">
-                    <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
-                            <img src="images/icon/logo.png" alt="CoolAdmin" />
-                        </a>
-                        <button class="hamburger hamburger--slider" type="button">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </header>
+    <div class="page-wrapper" style="height: 100vh;">
     
         <div class="page-container">
             
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: -100px;">
         <a class="navbar-brand head" href="index.html"><img src="..\dashboard\imgs\logo_Stroke.png" alt="logo">
 </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
@@ -86,7 +69,7 @@
                     data entered later -->
                     <div id=printableArea><img src=
                         "https://chart.googleapis.com/chart?cht=qr&chl=NULL&chs=160x160&chld=L|0"
-                                class="qr-code img-thumbnail img-responsive" /></div>
+                                class="qr-code img-thumbnail img-responsive" style="margin-left: auto; margin-right: auto; display: block;" ></div>
                     
                     </div>
                 
@@ -102,7 +85,7 @@
                             required data -->
                         <input type="text" size="60"
                             maxlength="60" class="form-control"
-                            id="content" placeholder="Enter Item" style="width: 30vw; border-radius: 10px; background-color: white;" />
+                            id="content" placeholder="Enter Item" style="width: 60vw; border-radius: 10px; background-color: white;" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -110,9 +93,11 @@
                 
                         <!-- Button to generate QR Code for
                         the entered data -->
-                        <button type="button" class="btn btn-default" id="generate" style="border-radius: 10px; background-color: #ffc600; color: white; border: transparent; font-size: 20px;">
+                        <button type="button" class="btn btn-default" id="generate" style="border-radius: 10px; background-color: #ffc600; color: white; border: transparent; font-size: 20px; margin-bottom: 10px;">
                             Generate
                         </button>
+                        <input type="button" onclick="printDiv('printableArea')" value="      Print 
+                " style="margin-left: 1%; border-radius: 10px; background-color: #ffc600; color: white; border: transparent; font-size: 19px; width: 100px; height: 40px; margin-top: 2px; text-align: center;"/>
                         </div>
                     </div>
                     </div>
@@ -152,8 +137,7 @@
                     });
                 </script>
                 <!--Print Button and Code-->
-                <input type="button" onclick="printDiv('printableArea')" value="      Print 
-                " style="margin-left: 1%; width: 7%; border-radius: 10px; background-color: #ffc600; color: white; border: transparent; font-size: 20px;"/>
+                
                 
                 <script>
                 function printDiv(divName) 
