@@ -1,13 +1,11 @@
-body{
-    
-    background: url("resources/background_red_light.png");
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  /*-moz-osx-font-smoothing: grayscale;   */
-}
+
 .head{
     font-size: 18px !important;
 }
+	.qr-code {
+	max-width: 300px;
+	margin: 10px;
+	}
 .content {
     padding: 20px;
     min-height: 100%;
@@ -29,9 +27,9 @@ body{
 
 h2{
     color: #526e86;
-    padding: 5px 5px 5px 5px;  
-    display:inline;
+    padding: 5px 5px 50px 5px;  
     font-size:25px;
+    
 
 }
 h4{
@@ -211,6 +209,9 @@ h3{
 
   /* form issuing and receiveing end */
 
+  body {
+    background-image:url(resources\background_red_light.png);
+  }
   .login-one-form {
     transform:translate(-50%, -50%);
     top:50%;
@@ -270,56 +271,6 @@ h3{
   /*table formatting*/
   table {
     border-collapse:separate;
-    border:solid whitesmoke 2px;
     border-radius:6px;
     -moz-border-radius:6px;
-}
-.table_background {
-    background-color: white;
-    margin-left: .5vw;
-    margin-right: 3vw;
-    margin-bottom: 3vh;
-    margin-top: 1vh;
-}
-
-  #checkOutTable {
-    font-weight: 400;
-    font-style: normal;
-    border-collapse: collapse;
-    width: 40%;
-}
-#checkOutTable tr:nth-child(even) {
-  background-color: /*#eee;*/#eff2f5
-}
-#checkOutTable tr:nth-child(odd) {
-  background-color: /*#fff*/rgba(114, 114, 113, 0.2);
-  padding: 10px 10px 10px 10px;
-}
-#checkOutTable th {
-  color: white;
-  background-color: #b86451; /*header of checkout table*/
-  font-size: 18px;
-  text-align: left;
-  padding: 5px 5px 5px 5px;
-}
-
-#inventoryTable {
-  width: 90%;
-  font-weight: 400;
-    font-style: normal;
-    border-collapse: collapse;
-}
-#inventoryTable tr:nth-child(even) {
-  background-color: #eee;
-}
-#inventoryTable tr:nth-child(odd) {
-  background-color: lightgray;
-}
-#inventoryTable th {
-  font-size: 16px;
-    text-align: left;
-    padding: 5px 5px 5px 5px;  
-    background-color: #15446e;
-    color: white;
-
 }
