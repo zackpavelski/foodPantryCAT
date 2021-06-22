@@ -55,7 +55,7 @@
 <body class="body">
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand head" href="index.html"><img src="..\inventory\resources\logo_Stroke.png" alt="logo">
+        <a class="navbar-brand head" href="..\dashboard\dashboard.html"><img src="..\inventory\resources\logo_Stroke.png" alt="logo">
 </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -81,6 +81,13 @@
             <text>Enter:</text> <input type="search" id="firstName" name="q" placeholder="First Name" aria-label="Search through site content">
 
             <input type="form" id="lastName" name="q" placeholder="Last Name" aria-label="Search through site content">
+            <text>School: </text> 
+            <select name="school" id="schools">
+                <option value="lakewood">Lakewood</option>
+                <option value="hollins">Hollins High</option>
+                <option value="bearCreak">Bear Creak</option>
+                <option value="pinellas">Pinellas Park</option>
+            </select>
             <button id="submit" onclick="pull()">Search</button>
         </form>
 
