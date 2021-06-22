@@ -170,12 +170,3 @@ button {
 td {
   text-align:left;
 }
-
-table
-{
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
-  margin-top: 15vh;
-  overflow: scroll;
-}
