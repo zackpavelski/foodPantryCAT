@@ -28,6 +28,31 @@ h1{
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   
 }
+
+a:link { /*href links on login pages*/
+  color: #2a9bd4;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #42a3d4;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #008fd6;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #008fd6;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
 .form input {
   font-family: FontAwesome, "Roboto", sans-serif;
   outline: 0;
