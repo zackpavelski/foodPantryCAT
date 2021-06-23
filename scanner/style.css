@@ -6,7 +6,7 @@ yellow: #F9C506;*/
 body {
   margin: 0px;
   padding: 0px;
-  background: rgb(255, 255, 255);
+  background-color: #e5e5e5;
   
 }
 
@@ -14,8 +14,15 @@ body {
   position: relative; /*was absolute, but broke navbar.*/
   top: 0;
   left: 0;
-  background-color: gray;
+ 
 }
+
+header
+{
+  background-color: #e5e5e5;
+  margin-top: 50px;
+}
+
 .page-container {
     background: #e5e5e5;
     padding-left: 0px;
@@ -131,7 +138,7 @@ button {
   #vid_container {
     width: 105%;
     height: 100%;
-    background-color: gray;
+    background-color: #e5e5e5;
   }
 
   #vid_container.left {
