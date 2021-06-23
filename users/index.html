@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+     <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Custom Stylesheet   -->
+    <link rel="stylesheet" href="css/style.css" />
+    
+</head>
+
+<div class="page-container">
+<body class="body">
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand head" href="..\dashboard\dashboard.html"><img src="..\inventory\resources\logo_Stroke.png" alt="logo">
+</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="navbar-collapse collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="..\dashboard\dashboard.html">My Dashboard</a>
+                <a class="nav-item nav-link" href="..\scanner\Scanner_phone.html">Scanner</a>
+                <a class="nav-item nav-link" href="..\inventory\inventory.html">Inventory</a>
+                <a class="nav-item nav-link" href="..\dashboard\addItem.html">Add Item</a>
+                <a class="nav-item nav-link" href="..\profileSettings\index.html">Account</a>
+                <a class="nav-item nav-link" href="..\login_signup\login.html">Log Out</a>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar ends -->
+
+<br>
+
+    <div class="section__content section__content--p30">
+        <div class="container" style="margin-left:-.7%">
+            <!-- <h2>Search Students<h4>&nbsp/&nbspLakewood(school)</h4></h2> -->
+            <form id="form" role="search">
+                <text>School: </text> 
+                <select name="school" id="schools">
+                    <option value="lakewood">Lakewood</option>
+                    <option value="hollins">Hollins High</option>
+                    <option value="bearCreak">Bear Creak</option>
+                    <option value="pinellas">Pinellas Park</option>
+                </select>
+                <input type="checkbox" name="admin" id="" value="admin">Admin
+                <input type="checkbox" name="student" id="" value="student">Student
+                <button id="submit" onclick="pull()">Search</button>
+            </form>
+            <br>
+
+
+
+
+
+ 
+</body>
+ 
+</html>
