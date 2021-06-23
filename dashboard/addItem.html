@@ -75,7 +75,7 @@
                     <div class="form-horizontal" style="margin-left: 0vw;">
                     <div class="form-group">
                         <label class="control-label col-sm-2"
-                        for="content" style="font-size: 32px; margin-top: -1%;">
+                        for="content" style="font-size: 16px; margin-top: -1%; margin-left:.25%">
                         Item:
                         </label>
                         <div class="col-sm-10">
@@ -97,7 +97,24 @@
                         </button>
                         <input type="button" onclick="printDiv('printableArea')" value="      Print 
                 " style="margin-left: 1%; border-radius: 10px; background-color: #ffc600; color: white; border: transparent; font-size: 19px; width: 100px; height: 40px; margin-top: 2px; text-align: center;"/>
-                        </div>
+                        <br>
+                        <br>
+                <label class="control-label col-sm-2"
+                        for="content" style="font-size: 16px; margin-top: -1%; margin-left:-1%">
+                        Item to Server:
+                        </label>
+                <input type="text" size="60"
+                        maxlength="60" class="form-control"
+                        id="content" placeholder="Item Name" style="width: 60vw; border-radius: 10px; background-color: white;" />
+                        <br>
+                <input type="text" size="60"
+                        maxlength="60" class="form-control"
+                        id="content" placeholder="Item Quantity" style="width: 60vw; border-radius: 10px; background-color: white;" />
+                        <br>
+                <button type="button" class="btn btn-default" id="generate" style="border-radius: 10px; background-color: #ffc600; color: white; border: transparent; font-size: 20px; margin-bottom: 10px;">
+                    Submit
+                </button>
+                        </div> 
                     </div>
                     </div>
                 </div>
