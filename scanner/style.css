@@ -187,4 +187,5 @@ table
   display: block;
   /*margin-top: 15vh;*/
   overflow: scroll;
+  align-content: center;
 }
