@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
- 
 <head>
+    <title>Users</title>
      <!-- Required meta tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!-- Custom Stylesheet   -->
     <link rel="stylesheet" href="css/style.css" />
-    
 </head>
 
 <div class="page-container">
@@ -40,7 +38,6 @@
 
     <div class="section__content section__content--p30">
         <div class="container" style="margin-left:-.7%">
-            <!-- <h2>Search Students<h4>&nbsp/&nbspLakewood(school)</h4></h2> -->
             <form id="form" role="search">
                 <text>School: </text> 
                 <select name="school" id="schools">
@@ -49,6 +46,7 @@
                     <option value="bearCreak">Bear Creak</option>
                     <option value="pinellas">Pinellas Park</option>
                 </select>
+                
                 <input type="checkbox" name="admin" id="" value="admin">Admin
                 <input type="checkbox" name="student" id="" value="student">Student
                 <button id="submit" onclick="pull()">Search</button>
