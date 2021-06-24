@@ -7,6 +7,7 @@ body {
   margin: 0px;
   padding: 0px;
   background-color: #e5e5e5;
+  text-align:center!important;
   
 }
 
@@ -25,7 +26,6 @@ header
 
 .page-container {
     background: #e5e5e5;
-    padding-left: 0px;
 }
 
 
@@ -179,7 +179,9 @@ button {
 td {
   text-align:left;
 }
-
+th{
+  text-align: center;
+}
 table
 {
   margin-right: auto;
@@ -188,4 +190,10 @@ table
   /*margin-top: 15vh;*/
   overflow: scroll;
   align-content: center;
+}
+
+text{
+  margin: auto 0 auto 0;
+  font-size:60px;
+  Font-weight: bold;
 }
