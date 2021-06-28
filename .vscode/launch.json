@@ -1,8 +1,8 @@
-{
+
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
+    /*"version": "0.2.0",
     "configurations": [
         {
             "type": "pwa-chrome",
@@ -12,4 +12,16 @@
             "webRoot": "${workspaceFolder}"
         }
     ]
+}*/
+{
+  "Version":"2012-10-17",
+  "Statement":[
+    {
+      "Sid":"PublicRead",
+      "Effect":"Allow",
+      "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::examplebucket/*"]
+    }
+  ]
 }
