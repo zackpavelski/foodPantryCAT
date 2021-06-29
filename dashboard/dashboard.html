@@ -93,7 +93,7 @@
                                 
                             </div>
                             <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2" style="cursor:pointer;">
+                                <div class="overview-item overview-item--c2" style="cursor:pointer;" onclick="loadUsers()">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -127,10 +127,10 @@
                                 </div>
                             </div>
                            
-                        <div class="row">
+                        <div class="row" style="max-width: fit-content; overflow: hidden;">
                             <div class="col-lg-9">
                                 <h2 class="title-1 m-b-25">Recent Orders</h2>
-                                <div class="table-responsive table--no-card m-b-40">
+                                <div class="table-responsive table--no-card m-b-40" style="max-width: 110%; overflow: hide;">
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead>
                                             <tr>
@@ -219,7 +219,7 @@
             window.location = "../profileSettings/index.html";
         }
         function loadUsers(){
-            window.location = "../inventory/inventory.html";
+            window.location = "../users/index.html";
         }
         function loadAddItem(){
             window.location = "../dashboard/addItem.html";
