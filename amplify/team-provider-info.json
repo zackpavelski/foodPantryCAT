@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-foodpantrycat-dev-102756-authRole",
+      "UnauthRoleArn": "arn:aws:iam::196822918269:role/amplify-foodpantrycat-dev-102756-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::196822918269:role/amplify-foodpantrycat-dev-102756-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-foodpantrycat-dev-102756-deployment",
+      "UnauthRoleName": "amplify-foodpantrycat-dev-102756-unauthRole",
+      "StackName": "amplify-foodpantrycat-dev-102756",
+      "StackId": "arn:aws:cloudformation:us-east-1:196822918269:stack/amplify-foodpantrycat-dev-102756/341bb1c0-d8e6-11eb-9a4b-0a5afd1032bb",
+      "AmplifyAppId": "d2zbb4o5myffgf"
+    }
+  }
+}

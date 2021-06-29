@@ -1,0 +1,16 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-food4allkids-staging-161746-authRole",
+      "UnauthRoleArn": "arn:aws:iam::196822918269:role/amplify-food4allkids-staging-161746-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::196822918269:role/amplify-food4allkids-staging-161746-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-food4allkids-staging-161746-deployment",
+      "UnauthRoleName": "amplify-food4allkids-staging-161746-unauthRole",
+      "StackName": "amplify-food4allkids-staging-161746",
+      "StackId": "arn:aws:cloudformation:us-east-1:196822918269:stack/amplify-food4allkids-staging-161746/60bbc090-d82c-11eb-be7d-0af47575f89b",
+      "AmplifyAppId": "dyeoujweklu5k",
+      "AuthTriggerTemplateURL": ""
+    }
+  }
+}
