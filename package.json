@@ -1,7 +1,31 @@
 {
   "dependencies": {
+    "express": "^4.17.1",
     "googleapis": "^76.0.0",
+    "http": "^0.0.1-security",
     "mongodb": "^3.6.9",
-    "react": "^17.0.2"
-  }
+    "nodejs": "^0.0.0",
+    "nodemon": "^2.0.9",
+    "npx": "^10.2.2",
+    "react": "^17.0.2",
+    "socket.io": "^4.1.2"
+  },
+  "name": "foodPantryCAT",
+  "description": "Any folder in this directory that includes an `index.html` file will be part of the website. The HTML files can then link to `../css/out/index.css` for styles and the respective JavaScript file for logic.\\\r Common attributes of the HTML files include:\\\r `<meta charset=\"UTF-8\">` for consistancy\\\r `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">` for resizing\\\r `<link rel=\"stylesheet\" type=\"text/css\" href=\"../../css/out/index.css\">` for styles",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zackpavelski/foodPantryCAT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zackpavelski/foodPantryCAT/issues"
+  },
+  "homepage": "https://github.com/zackpavelski/foodPantryCAT#readme"
 }
