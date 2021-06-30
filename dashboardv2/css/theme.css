@@ -164,6 +164,7 @@ strong {
     text-transform: capitalize;
     font-weight: 400;
     font-size: 30px;
+    padding: 10px 0 0 15px;
 }
 
 .title-2 {
@@ -3301,7 +3302,7 @@ section {
 
 .au-card--bg-blue {
     background-image: -moz-linear-gradient(90deg, #396afc 0%, #2948ff 100%);
-    background-image: -webkit-linear-gradient(90deg, #396afc 0%, #2948ff 100%);
+    background-image: -webkit-linear-gradient(90deg, #0b1999 0%, #2948ff 100%);
     background-image: -ms-linear-gradient(90deg, #396afc 0%, #2948ff 100%);
 }
 
