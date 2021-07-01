@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Students in the NET Assistant Program at Lakewood High School's CAT Program">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Feeding the Future&nbsp|&nbspDashboard</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="css/navbar.css" />
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            
+            <!-- HEADER DESKTOP-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand head" href="..\dashboard\dashboard.html"><img src="..\dashboard\imgs\logo_Stroke.png" alt="logo">
+</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="navbar-collapse collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="..\dashboard\dashboard.html">My Dashboard</a>
+                <a class="nav-item nav-link" href="..\scanner\Scanner_phone.html">Scanner</a>
+                <a class="nav-item nav-link" href="..\inventory\inventory.html">Inventory</a>
+                <a class="nav-item nav-link" href="..\dashboard\addItem.html">Add Item</a>
+                <a class="nav-item nav-link" href="..\profileSettings\index.html">Account</a>
+                <a class="nav-item nav-link" href="..\login_signup\login.html">Log Out</a>
+            </div>
+        </div>
+    </nav>
+           
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">Lakewood Pantry</h2>
+                                    <button class="au-btn au-btn-icon au-btn--blue" onclick="loadAddItem()">
+                                        <i class="zmdi zmdi-plus"></i>add item</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-t-25">
+                            <div class="col-sm-6 col-lg-3">
+                                
+                                <div class="overview-item overview-item--c1"; style="cursor:pointer;" onclick="loadInventory()">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-account-o"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>Inventory</h2>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart1"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c2" style="cursor:pointer;" onclick="loadUsers()">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-shopping-cart"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>Users</h2>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart2"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c3" style="cursor:pointer; background-repeat: no-repeat;" onclick="loadAdSettings()">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-calendar-note"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>Settings</h2>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart3"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <h2 class="title-1 m-b-25">Recent Orders</h2>
+                                <div class="table-responsive table--no-card m-b-40">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th>name</th>
+                                                <th>Date</th>
+                                                <th>Food Name</th>
+                                                <th>Order ID</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Casey Miltner</td>
+                                                <td>04/22/2021</td>
+                                                <td>Canned Broccoli</td>
+                                                <td class="text-right">26485</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Andrew Riiska</td>
+                                                <td>05/21/2021</td>
+                                                <td>Spaghetti</td>
+                                                <td class="text-right">34622</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Zack Pavelski</td>
+                                                <td>04/19/2021</td>
+                                                <td>Cheesecake Mix</td>
+                                                <td class="text-right">26453</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chris Borg</td>
+                                                <td>04/05/2021</td>
+                                                <td>Pizza Sauce</td>
+                                                <td class="text-right">34325</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jeremey White</td>
+                                                <td>03/06/2017</td>
+                                                <td>Bread</td>
+                                                <td class="text-right">34345</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Martin Martinez</td>
+                                                <td>06/15/2021</td>
+                                                <td>Meatballs</td>
+                                                <td class="text-right">67646</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bethany Tran</td>
+                                                <td>03/21/2021</td>
+                                                <td>Canned Corn</td>
+                                                <td class="text-right">19854</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Stefan Mason</td>
+                                                <td>05/31/2021</td>
+                                                <td>Salad Dressing</td>
+                                                <td class="text-right">00393</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Feeding the Future - a project created by students, for the students.&nbsp<a href="..\login_signup\login.html">Home</a></a></p>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    <script>
+        function loadInventory(){
+            window.location = "../inventory/inventory.html";
+        }
+        function loadAdSettings(){
+            window.location = "../profileSettings/index.html";
+        }
+        function loadUsers(){
+            window.location = "../users/index.html";
+        }
+        function loadAddItem(){
+            window.location = "../dashboard/addItem.html";
+        }
+    </script>
+
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
+<!-- end document-->
