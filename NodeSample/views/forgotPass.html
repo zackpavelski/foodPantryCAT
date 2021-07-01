@@ -5,7 +5,7 @@
   <title>Feeding the Future | Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="login_style.css">
+  <link rel="stylesheet" type="text/css" href="/loginResources/login_style.css">
   <script type="text/javascript" src="../cookies.js"></script>
   <script type="text/javascript" src="../login_signup/login.js"></script>
 
@@ -20,7 +20,7 @@
 <div class="login-page">
   <div class="form">
     <form>
-      <img src="..\login_signup\resources\logo2.png" alt="logo">
+      <img src="\images\logo2.png" alt="logo">
       
 <br><text>Enter your email address that you used to register. We'll send you an email with your username and a
                         link to reset your password.</text>
@@ -30,12 +30,12 @@
                             <input type="email" class="form-control" name="email" placeholder="Email" required autofocus>
                         </div>
                     </div>
-      <button type="button" onclick="window.location.href='thankyou.html'">RESET MY PASSWORD</button>
+      <button type="button" action="thank" onclick="window.location.href='/thank'">RESET MY PASSWORD</button>
     </form>
 
 
 
-  <a href="../login_signup/login.html">Back to login</a>
+  <a action="login" onclick="window.location.href='/'">Back to login</a>
   </div>
 </div>
   <script>

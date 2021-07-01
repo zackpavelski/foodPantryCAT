@@ -1,5 +1,5 @@
 var express = require('express')
-, mongoHelper = require("./utils/mongoUtils")
+
     , urlHelper = require("./routes.js")
   , http = require('http')
   , fs = require('fs')
@@ -29,9 +29,6 @@ app.configure('development', function(){
 
 urlHelper.setRequestUrl(app);
 
-mongoHelper.connect(function(error){
-    if (error) throw error;
-});
 app.on('close', function(errno) {
 	//ongoHelper.disconnect(function(err) { });
 });

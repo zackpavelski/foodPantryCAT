@@ -10,6 +10,10 @@ exports.setRequestUrl=function(app){
     app.get('/scanner', user.scanner);
     app.get('/account', user.account);
     app.get('/signup', user.signup);
+    app.get('/users', user.users);
+    app.get('/switch', user.switch);
+    app.get('/forgotPass', user.forgotPass);
+    app.get('/thank', user.thank);
 
 
   

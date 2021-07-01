@@ -22,14 +22,23 @@ exports.inventory = function(req, res, next){
     res.render('inventory.html', {message:""});
 }
 exports.account = function(req, res, next){
-    res.render('account.html', {message:""});
+    res.render('profileSettings.html', {message:""});
 }
 exports.signup = function(req, res, next){
     res.render('signup.html', {message:""});
 }
-
-
-
+exports.users = function(req, res, next){
+    res.render('users.html', {message:""});
+}
+exports.switch = function(req, res, next){
+    res.render('switchPantry.html', {message:""});
+}
+exports.forgotPass = function(req, res, next){
+    res.render('forgotPass.html', {message:""});
+}
+exports.thank = function(req, res, next){
+    res.render('thankYou.html', {message:""});
+}
 /*
 exports.onLogin = function (req, res, next) {
     var mdPassword=crypt.md5(req.body.password);

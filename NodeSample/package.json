@@ -6,7 +6,12 @@
     "start": "node app"
   },
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "3.0.0beta7",
-    "jade": "*"
+    "jade": "*",
+    "mongoose": "^5.13.0",
+    "nodemon": "^2.0.9",
+    "npx": "^10.2.2",
+    "path": "^0.12.7"
   }
 }
