@@ -23,7 +23,9 @@ body{
 
 .section__content {
   animation:transitionIn .75s;
-
+}
+.main-content {
+  animation:transitionIn .75s;
 }
 @keyframes transitionIn { /* page transition*/
   from {
