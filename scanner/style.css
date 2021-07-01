@@ -86,7 +86,6 @@ header
 
 button {
   outline: none;
-  position: absolute;
   color: white;
   display: block;
   opacity: 1;

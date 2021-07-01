@@ -4,7 +4,21 @@
   background-image: "../qrcodegenerator/img/test.png";
   background-repeat: no-repeat;
   background-size: cover;
+  animation: transitionIn .75s;
 }
+
+
+@keyframes transitionIn { /* page transition*/
+  from {
+    opacity:0;
+    transform:rotateX(-10deg);
+  }
+  to {
+    opacity:1;
+    transform:rotateX(0);
+  }
+}
+
 
 h1{
   color:white;
