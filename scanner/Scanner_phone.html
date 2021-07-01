@@ -39,18 +39,17 @@
 
 
     <div id="container">
-      <h1 style="text-align: center; font-size: 5vw; margin-top: 25px;" id="header">Food Scanner</h1>
+      <h1 style="text-align: center; font-size: 5vw; margin-top: 5vw;" id="header">Food Scanner</h1>
       <div id="vid_container" style="z-index: 2; width: auto; height: 100vh; margin-top: -5vh;">
         <a id="btn-scan-qr"></a>
         <canvas id="qr-canvas" style="margin-top: 5vh; width: 50vmax; z-index: 20; margin-left: auto; margin-right: auto; display: block; border-radius: 25px; border-color:  rgb(255, 159, 0); border-width: thick; border-style: solid; margin-top: 50px;" height="480" width="640"></canvas>
 
         <!--This is the table that the items get put into-->
-        <text>Items</text>
+        <text style="font-size: 5vw;">Items</text>
         <div id="Table">
           <div id="listID" style="font-family: 'Noto Sans', 'Helvetica'; font-size: 20px; color:  #236dad; margin-top: -4vh; text-align: center; margin-right: auto; margin-left: auto; display: block;">
           
-            <table id="itemTable" style="font-family: 'Noto Sans', 'Helvetica';font-size: 5vw;color: black; position: relative; margin-top: 10%; margin-left: auto; margin-right:auto;">
-            
+            <table id="itemTable" style="font-family: 'Noto Sans', 'Helvetica';font-size: 5vw;color: black; position: relative; margin-top: 5%; margin-left: auto; margin-right:auto; background-color: rgb(255, 255, 255); border: thick solid rgb(255, 159, 0);">
               <tbody><tr style="font-size:50px;">
                 <!--Items text moved above-->
               </tr>
@@ -61,9 +60,9 @@
                 <div style="margin-left: auto; margin-right: auto; display: block">
               </div>
               </tr>
-            
+              
             </table>
-            <button id="orderFin" style="scroll-margin-bottom:0vh; width: auto; margin-right: auto; margin-left: auto; display: block;">Finish Order</button>
+            <button id="orderFin" style="scroll-margin-bottom: 0vh; width: auto; margin-right: auto; margin-left: auto; display: block; margin-top: 10px;">Finish Order</button>  
           
           </div>
         </div>

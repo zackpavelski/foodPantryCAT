@@ -197,16 +197,25 @@ th{
 }
 table
 {
+  width: 50%;
   margin-right: auto;
   margin-left: auto;
   display: block;
   /*margin-top: 15vh;*/
   overflow: scroll;
   align-content: center;
+  margin-top: -10vh;
+  padding: 5px;
+  text-align: center;
 }
 
 text{
   margin: auto 0 auto 0;
   font-size:60px;
   Font-weight: bold;
+}
+
+td
+{
+  text-align: center;
 }
