@@ -40,9 +40,13 @@ exports.setRequestUrl=function(app){
             password: 'Pantry21!',
             database: 'pantry'
         });
-        /*
         var username = document.getElementById('username').value;
         var password = hashPassword(document.getElementById('password').value);
+        var email = document.getElementById('email').value;
+        var zipCode = document.getElementById('zipCode').value;
+        var numPeople = document.getElementById('numPeople').value;
+        /*
+        
         if (username && password) {
             connection.query('SELECT * FROM pantryUsers WHERE email = ? AND password = ?', [username, password], function(error, results, fields) {
                 if (results.length > 0) {
