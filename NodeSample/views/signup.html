@@ -27,19 +27,18 @@
         <div class="form">
           <form>
             <img src="\images\logo2.png" alt="logo">
-            <input type="text" placeholder="full name" />
-            <input type="text" placeholder="email address" />
-            <input type="text" placeholder="pick a username" />
-            <!--permits whitespace before/after the string, which the developer will need to trim serverside-->
-            <input type="text" placeholder="Zip Code" title="Please enter a Zip Code" pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$">
-            <input type="text" placeholder="# in household" min="1"/>
-            <input type="text" placeholder="# of children (under 18)" min="0"/>
+            <input type="text" id="fullName" placeholder="full name" />
+            <input type="text" id="email" placeholder="email address" />
+            <input type="text" id="username" placeholder="pick a username" />
+            <input type="text" id="zipCode" placeholder="Zip Code" title="Please enter a Zip Code" pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$">
+            <input type="text" id="numPeople" placeholder="# in household" min="1"/>
+            <input type="text" id="minors" placeholder="# of children (under 18)" min="0"/>
             <br>
             <br>
           </form>
 
           <form class="login-form">
-            <button type="button" action="login" onclick="window.location.href='/'">
+            <button type="button" action="createUser" onclick="window.location.href='/createUser'">
               SIGN UP
             </button>
           </form>
