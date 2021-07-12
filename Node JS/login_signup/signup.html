@@ -30,6 +30,10 @@
             <input type="text" placeholder="full name" />
             <input type="text" placeholder="email address" />
             <input type="text" placeholder="pick a username" />
+            <!--permits whitespace before/after the string, which the developer will need to trim serverside-->
+            <input type="text" placeholder="Zip Code" title="Please enter a Zip Code" pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$">
+            <input type="text" placeholder="# in household" min="1"/>
+            <input type="text" placeholder="# of children (under 18)" min="0"/>
             <br>
             <br>
           </form>
