@@ -1,25 +1,22 @@
 {
-  "name": "food4allkids",
-  "version": "1.0.0",
-  "description": "pantry project",
-  "main": "app.js",
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "jade": "^1.11.0",
+    "express": "^3.0.0-beta7",
+    "jade": "*",
+    "jsdom": "^16.6.0",
+    "mongoose": "^5.13.0",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.12",
+    "nodemon": "^2.0.9",
     "npx": "^10.2.2",
-    "path": "^0.12.7",
-    "stack": "^0.1.0"
+    "path": "^0.12.7"
   },
   "engines": {
-    "node": "14.7.3"
+    "node": "14.17.3"
   }
 }
