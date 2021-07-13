@@ -52,26 +52,6 @@ ul {
     margin: 0;
 }
 
-button,
-input[type='button'] {
-    cursor: pointer;
-}
-
-button:focus,
-input:focus,
-textarea:focus {
-    outline: none;
-}
-
-input, textarea {
-    border: none;
-}
-
-button {
-    border: none;
-    background: none;
-}
-
 img {
     max-width: 100%;
     height: auto;
