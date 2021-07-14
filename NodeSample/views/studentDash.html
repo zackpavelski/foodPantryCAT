@@ -66,7 +66,7 @@
                 <a class="nav-item nav-link" action="inventory" onclick="window.location.href='/inventory'">Inventory</a>
                 <a class="nav-item nav-link" action="additem" onclick="window.location.href='/addItem'">Add Item</a>
                 <a class="nav-item nav-link" action="account" onclick="window.location.href='/account'">Account</a>
-                <a class="nav-item nav-link" action="login" onclick="window.location.href='/'">Log Out</a><!--just temporary... :D-->
+                <a class="nav-item nav-link" action="login" onclick="window.location.href='">Log Out</a><!--just temporary... :D-->
             </div>
         </div>
     </nav>
@@ -100,8 +100,25 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2" style="cursor:pointer;" action="users" onclick="window.location.href='/users'">
+                                <div class="overview-item overview-item--c3" style="cursor:pointer; background-repeat: no-repeat;" action="switch" onclick="window.location.href='/switch'">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-alarm"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>My History</h2>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c2" style="cursor:pointer;" action="account" onclick="window.location.href='/account'">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -118,23 +135,6 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c3" style="cursor:pointer; background-repeat: no-repeat;" action="switch" onclick="window.location.href='/switch'">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-alarm"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>My History</h2>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
                                 <div class="overview-item overview-item--c4" style="cursor:pointer; background-repeat: no-repeat;" action="account" onclick="window.location.href='/account'">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -142,7 +142,7 @@
                                                 <i class="zmdi zmdi-settings"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>Settings</h2>
+                                                <h2>Logout</h2>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -155,7 +155,7 @@
                        <div class="row" style="max-width: fit-content; overflow: hidden;">
                             <div class="col-lg-9">
                                 <h2 class="title-1 m-b-25">Recent Orders</h2>
-                                <div class="table-responsive table--no-card m-b-40" style="max-width: 110%;overflow-x:auto;">
+                                <div class="table-responsive table--no-card m-b-40" style="max-width: 110%;">
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead>
                                             <tr>
@@ -219,49 +219,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <h2 class="title-1 m-b-25">Most Popular</h2>
-                                <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
-                                    <div class="au-card-inner">
-                                        <div class="table-responsive">
-                                            <table class="table table-top-countries">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Mac n Cheese</td>
-                                                        <td class="text-right">23</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Soup</td>
-                                                        <td class="text-right">18</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Bread</td>
-                                                        <td class="text-right">17</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Turkey</td>
-                                                        <td class="text-right">15</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Ramen</td>
-                                                        <td class="text-right">12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Pancake Mix</td>
-                                                        <td class="text-right">10</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Canned Corn</td>
-                                                        <td class="text-right">9</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Spaghheti Sauce</td>
-                                                        <td class="text-right">6</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                         <br>
