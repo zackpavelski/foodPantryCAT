@@ -23,6 +23,7 @@ exports.setRequestUrl=function(app){
 
     app.get('/', user.login);
     app.get('/dashboard', user.dashboard);
+    app.get('/studentDash', user.studentDash);
     app.get('/inventory', user.inventory);
     app.get('/additem', user.additem);
     app.get('/scanner', user.scanner);
