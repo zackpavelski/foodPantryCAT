@@ -28,11 +28,8 @@ connection.connect(function(err){
     
     
     var selectquery = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='pantrydb' AND `TABLE_NAME`='pantryUsers';";
-    connection.query('SELECT * FROM pantryUsers WHERE username="zack88690" AND password="goldhouse9"', function(err, result){
-        if(err) throw err;
-        console.log(result);
-    })
-    connection.query('SELECT * FROM pantryUsers;', function(err, result){
+    
+    connection.query('DELETE FROM pantryUsers', function(err, result){
         if (err) throw err
         console.log(result);
     })
