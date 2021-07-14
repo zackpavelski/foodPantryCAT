@@ -57,7 +57,7 @@ exports.setRequestUrl=function(app){
             connection.query(sql, function (err, result) {
                 if (err) throw err;
                 console.log("1 record inserted");
-            });   
+            });  
             response.redirect('/');
         });
         
@@ -97,7 +97,6 @@ exports.setRequestUrl=function(app){
                 response.redirect('/dashboard');
 
             } else {
-                console.log("Incorrect Login");
                 response.redirect('/');
             }			
             response.end();
