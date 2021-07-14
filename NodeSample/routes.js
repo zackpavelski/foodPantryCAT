@@ -48,13 +48,12 @@ exports.setRequestUrl=function(app){
                 console.log(hash);
                 password = hash;
               });
-            var email = req.body.email;
             var zipCode = req.body.zipCode;
             var numPeople = req.body.numPeople;
-            var undereighteen = '0';
+            var undereighteen = req.body.numMinors;
 
             //var sql = `INSERT INTO scoutingDataTab (compId, teleop_cargoTot, teleop_hatchTot) VALUES (${compId}, ${teleop_noOfCargo}, ${teleop_noOfHatch})`;
-            var sql = `INSERT INTO pantryUsers (email, fullName, username, numPeople, numMinors, zipCode, password) VALUES ('${email}', '${fullName}', '${username}', '${numPeople}', '${undereighteen}',  '${zipCode}', '${password}');`;   
+            var sql = `INSERT INTO pantryUsers (fullName, username, numPeople, numMinors, zipCode, password) VALUES ('${fullName}', '${username}', '${numPeople}', '${undereighteen}',  '${zipCode}', '${password}');`;   
             connection.query(sql, function (err, result) {
                 if (err) throw err;
                 console.log("1 record inserted");
@@ -82,11 +81,11 @@ exports.setRequestUrl=function(app){
         });
         
         var username = req.body.username;
-        var password = req.body.password;
+        var password;
         var saltRounds = 4;
-        /*bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+        bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
             password = hash;
-          });*/
+          });
 
         //'SELECT * FROM pantryUsers WHERE username="zack88690" AND password="goldhouse9"'
         var querstring = `SELECT * FROM pantryUsers WHERE username="${username}" AND password="${password}"`;
