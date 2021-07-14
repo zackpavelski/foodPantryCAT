@@ -5,13 +5,11 @@
   <title>Feeding the Future | Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <link href="/loginResources/login_signup.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="/js/login.js"></script>
   <style>
     @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .body{
-  background-image: "../qrcodegenerator/img/test.png";
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -25,7 +23,6 @@ h1{
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
-
 }
 
 text{
@@ -111,12 +108,10 @@ border-radius:30px;
 }
 .form button:hover,.form button:focus {
   background: #b86451;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   transform: translateY(-4px);
 }
 .form button:active {
   transform: translateY(2px);
-  box-shadow: 0 2.5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .form .message {
@@ -159,14 +154,12 @@ border-radius:30px;
   padding: 0;
   font-size: 36px;
   font-weight: 300;
-  color: #1a1a1a;
 }
 .container .info span {
   color: #4d4d4d;
   font-size: 12px;
 }
 .container .info span a {
-  color: #000000;
   text-decoration: none;
 }
 .container .info span .fa {
@@ -203,7 +196,7 @@ body {
     </form>
 
     <!-- put forgot password here-->
-    <a action="forgotPass" onclick="window.location.href='/forgotPass'">Forgot Password?</a>
+    <a href="/forgotPass">Forgot Password?</a>
 
 
 

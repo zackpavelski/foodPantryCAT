@@ -33,7 +33,7 @@ exports.signup = function(req, res, next){
 exports.users = function(req, res, next){
     res.render('users.html', {message:""});
 }
-exports.myHistory = function(req, res, next){
+exports.history = function(req, res, next){
     res.render('history.html', {message:""});
 }
 exports.switch = function(req, res, next){

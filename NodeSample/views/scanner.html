@@ -63,8 +63,29 @@
               </tr>
             
             </table>
-            <button id="orderFin" style="scroll-margin-bottom:0vh; width: auto; margin-right: auto; margin-left: auto; display: block;">Finish Order</button>
+            <button id="orderFin" class="btn-open" style="scroll-margin-bottom:0vh; width: auto; margin-right: auto; margin-left: auto; display: block;">Finish Order</button>
           
+            <!-- this is supposed to be a popup window with the cart but it doesn't work. there is a modal.css and modal.js for it-->
+          <div class="modal-wrapper">
+  <div class="modal">
+    <div class="btn-close"></div>
+    <div class="clear"></div>
+    <div class="form-popup" id="myForm">
+  <div class="col-25">
+    <div class="container">
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
+      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
+      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
+      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+      <hr>
+      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
           </div>
         </div>
 
@@ -72,14 +93,10 @@
 
 
       </div>
-    
-      
-        
-        
-        
       
     
-    <script src="./src/qrCodeScanner.js"></script>
+    <script src="/scannerResources/qrCodeScanner.js"></script>
+    <script src="/scannerResources/modal.js"></script>
   </body>
   </div>
 </html>
