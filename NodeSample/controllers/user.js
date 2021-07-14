@@ -9,9 +9,6 @@ exports.login = function (req, res, next) {
 exports.dashboard = function(req, res, next){
     res.render('dashboard.html', {message:""});
 }
-exports.studentDash = function(req, res, next){
-    res.render('studentDash.html', {message:""});
-}
 exports.inventory = function(req, res, next){
     res.render('inventory.html', {message:""});
 }
