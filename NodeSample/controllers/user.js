@@ -1,7 +1,6 @@
 "use strict";
 
 var config = require('../config');
-var crypt = require('../utils/crypt.js');
 
 exports.login = function (req, res, next) {
         res.render('index.html',{message:""});

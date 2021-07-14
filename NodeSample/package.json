@@ -6,15 +6,19 @@
     "start": "node app"
   },
   "dependencies": {
+    "crypto": "^1.0.1",
     "ejs": "^3.1.6",
-    "express": "3.0.0beta7",
+    "express": "^3.21.2",
     "jade": "*",
+    "jquery": "^3.6.0",
     "jsdom": "^16.6.0",
     "mongoose": "^5.13.0",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.9",
-    "npx": "^10.2.2",
+    "npx": "^3.0.0",
     "path": "^0.12.7"
   },
-  "engines": { "node" : "14.17.3" }
+  "engines": {
+    "node": "14.17.3"
+  }
 }

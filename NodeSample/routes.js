@@ -1,4 +1,8 @@
 var mysql = require('mysql');
+var crpyto = require('crypto');
+var jsdom = require('jsdom');
+$ = require('jquery')(new jsdom.JSDOM().window);;
+
 
 function hashPassword(password) {
     var salt = crypto.randomBytes(128).toString('base64');
@@ -34,12 +38,50 @@ exports.setRequestUrl=function(app){
     app.get('/thank', user.thank);
     
     app.get('/createUser', function(request, response) {
+        
         var connection = mysql.createConnection({
-            host: 'pantry.cluster-cvskfciqfnj6.us-east-1.rds.amazonaws.com',
+            host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
             port: '3306',
             user: 'pantryAdmin',
             password: 'Pantry21!',
-            database: 'pantry'
+            database: 'pantrydb'
+        });
+        connection.connect(function(err){
+            if(err){
+                console.error('Db connection failed: ' + err.stack);
+                return;
+            }
+            console.log('Connected!');
+            var username = $('#username').text();
+            var fullName = $('#fullName').text();
+            var password = $('password').text();
+            var email = $('email').text();
+            var zipCode = $('zipCode').text();
+            var numPeople = $('numPeople').text();
+            var minors = $('minors').text();
+            
+            console.log(username + '--------------'+ fullName, password, email, zipCode, numPeople, minors);
+
+            //var sql = `INSERT INTO scoutingDataTab (compId, teleop_cargoTot, teleop_hatchTot) VALUES (${compId}, ${teleop_noOfCargo}, ${teleop_noOfHatch})`;
+            var sql = `INSERT INTO pantryUsers (email, fullName, password, username, zipcode, numPeople, numMinors) VALUES (${email}, ${fullName}, ${password}, ${username}, ${zipCode}, ${numPeople}, ${minors})`;   
+            connection.query(sql, function (err, result) {
+                if (err) throw err;
+                console("1 record inserted");
+            });   
+            user.dashboard;
+        });
+        
+        
+    });
+
+
+    app.get('/auth', function(request, response) {
+        var connection = mysql.createConnection({
+            host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
+            port: '3306',
+            user: 'pantryAdmin',
+            password: 'Pantry21!',
+            database: 'pantrydb'
         });
         connection.connect(function(err){
             if(err){
@@ -50,40 +92,7 @@ exports.setRequestUrl=function(app){
         });
         
         var username = request.query.username;
-        var fullName = request.query.fullName;
-        var password = request.query.password;
-        var email = request.query.email;
-        var zipCode = request.query.zipCode;
-        var numPeople = request.query.numPeople;
-        var minors = request.query.minors;
-        //var sql = `INSERT INTO scoutingDataTab (compId, teleop_cargoTot, teleop_hatchTot) VALUES (${compId}, ${teleop_noOfCargo}, ${teleop_noOfHatch})`;
-        var sql = `INSERT INTO pantryUsers (email, fullName, password, username, zipcode, numPeople, numMinors) VALUES (${email}, ${fullName}, ${password}, ${username}, ${zipCode}, ${numPeople}, ${minors})`;   
-        /*connection.query(sql, function (err, result) {
-            if (err) throw err;
-            console("1 record inserted");
-          });   */
-        user.dashboard;
-    });
-
-
-    app.get('/auth', function(request, response) {
-        var connection = mysql.createConnection({
-            host: 'pantry.cluster-cvskfciqfnj6.us-east-1.rds.amazonaws.com',
-            port: '3306',
-            user: 'pantryAdmin',
-            password: 'Pantry21!',
-            database: 'pantry'
-        });
-        connection.connect(function(err){
-            if(err){
-                console.error('Db connection failed: ' + err.stack);
-                return;
-            }
-            console.log('Connected!');
-        });
-        
-        var username = document.getElementById('username').value;
-        var password = hashPassword(document.getElementById('password').value);
+        var password = hashPassword(request.query.password);
         if (username && password) {
             connection.query('SELECT * FROM pantryUsers WHERE email = ? AND password = ?', [username, password], function(error, results, fields) {
                 if (results.length > 0) {
