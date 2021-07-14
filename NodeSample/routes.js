@@ -2,23 +2,9 @@ var mysql = require('mysql');
 var crpyto = require('crypto');
 var jsdom = require('jsdom');
 $ = require('jquery')(new jsdom.JSDOM().window);;
-
-
-function hashPassword(password) {
-    var salt = crypto.randomBytes(128).toString('base64');
-    var iterations = 10000;
-    var hash = pbkdf2(password, salt, iterations);
-
-    return {
-        salt: salt,
-        hash: hash,
-        iterations: iterations
-    };
-}
-
-function isPasswordCorrect(savedHash, savedSalt, savedIterations, passwordAttempt) {
-    return savedHash == pbkdf2(passwordAttempt, savedSalt, savedIterations);
-}
+var bcrypt = require('bcrypt');
+var LocalStorage = require('node-localstorage').LocalStorage;
+localStorage = new LocalStorage('./scratch');
 
 
 exports.setRequestUrl=function(app){
@@ -37,8 +23,9 @@ exports.setRequestUrl=function(app){
     app.get('/forgotPass', user.forgotPass);
     app.get('/thank', user.thank);
     
-    app.get('/createUser', function(request, response) {
-        
+    app.post('/createUser', function(req, response) {
+    
+
         var connection = mysql.createConnection({
             host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
             port: '3306',
@@ -51,31 +38,35 @@ exports.setRequestUrl=function(app){
                 console.error('Db connection failed: ' + err.stack);
                 return;
             }
-            console.log('Connected!');
-            var username = $('#username').text();
-            var fullName = $('#fullName').text();
-            var password = $('password').text();
-            var email = $('email').text();
-            var zipCode = $('zipCode').text();
-            var numPeople = $('numPeople').text();
-            var minors = $('minors').text();
             
-            console.log(username + '--------------'+ fullName, password, email, zipCode, numPeople, minors);
+            var username = req.body.username;
+            var fullName = req.body.fullName;
+           
+            var password;
+            var saltRounds = 4;
+            bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+                console.log(hash);
+                password = hash;
+              });
+            var email = req.body.email;
+            var zipCode = req.body.zipCode;
+            var numPeople = req.body.numPeople;
+            var undereighteen = '0';
 
             //var sql = `INSERT INTO scoutingDataTab (compId, teleop_cargoTot, teleop_hatchTot) VALUES (${compId}, ${teleop_noOfCargo}, ${teleop_noOfHatch})`;
-            var sql = `INSERT INTO pantryUsers (email, fullName, password, username, zipcode, numPeople, numMinors) VALUES (${email}, ${fullName}, ${password}, ${username}, ${zipCode}, ${numPeople}, ${minors})`;   
+            var sql = `INSERT INTO pantryUsers (email, fullName, username, numPeople, numMinors, zipCode, password) VALUES ('${email}', '${fullName}', '${username}', '${numPeople}', '${undereighteen}',  '${zipCode}', '${password}');`;   
             connection.query(sql, function (err, result) {
                 if (err) throw err;
-                console("1 record inserted");
+                console.log("1 record inserted");
             });   
-            user.dashboard;
+            response.redirect('/');
         });
         
         
     });
 
 
-    app.get('/auth', function(request, response) {
+    app.post('/auth', function(req, response) {
         var connection = mysql.createConnection({
             host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
             port: '3306',
@@ -88,27 +79,31 @@ exports.setRequestUrl=function(app){
                 console.error('Db connection failed: ' + err.stack);
                 return;
             }
-            console.log('Connected!');
         });
         
-        var username = request.query.username;
-        var password = hashPassword(request.query.password);
-        if (username && password) {
-            connection.query('SELECT * FROM pantryUsers WHERE email = ? AND password = ?', [username, password], function(error, results, fields) {
-                if (results.length > 0) {
-                   //REDIRECT TO DASHBOARD
-                   localStorage.setItem("name", "username");
-                   //localStorage.getItem("name");
-                   user.dashboard;
-                } else {
-                    response.send('Incorrect Username and/or Password!');
-                }			
-                response.end();
-            });
-        } else {
-            response.send('Please enter Username and Password!');
+        var username = req.body.username;
+        var password = req.body.password;
+        var saltRounds = 4;
+        /*bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+            password = hash;
+          });*/
+
+        //'SELECT * FROM pantryUsers WHERE username="zack88690" AND password="goldhouse9"'
+        var querstring = `SELECT * FROM pantryUsers WHERE username="${username}" AND password="${password}"`;
+        connection.query(querstring, function(error, results) {
+            console.log(results + ' results');
+            if (results.length > 0) {
+                //REDIRECT TO DASHBOARD
+                localStorage.setItem('name', username);
+                response.redirect('/dashboard');
+
+            } else {
+                console.log("Incorrect Login");
+                response.redirect('/');
+            }			
             response.end();
-        }
+        });
+    
     });
 
   

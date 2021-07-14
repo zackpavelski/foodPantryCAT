@@ -187,15 +187,16 @@ body {
 	
 <div class="login-page">
   <div class="form">
-    <form>
-      <img src="\images\logo2.png" alt="logo">
-      <input id="email" type="text" placeholder="&#xf007;  email"/>
-      <input id="password" type="text" placeholder="&#xf007;  password"/>
-      <br>
-      <br>
-      <button type="button" action="dashboard" onclick="window.location.href='/dashboard'
-      ">CHECK-IN</button>
-      <p class="message"></p>
+    <form action="/auth" method="POST">
+      <fieldset>
+        <img src="\images\logo2.png" alt="logo">
+        <input id="username" type="text" name="username" placeholder="&#xf007;  username"/>
+        <input id="password" type="password" name="password" placeholder="&#xf007;  password"/>
+        <br>
+        <br>
+        <button type="submit">CHECK-IN</button>
+        <p class="message"></p>  
+      </fieldset>
     </form>
 
     <form class="login-form">
