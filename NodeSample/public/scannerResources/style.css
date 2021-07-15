@@ -17,7 +17,11 @@ body {
   left: 0;
  
 }
-
+h1 {
+  text-align: center; 
+  font-size: 40px; 
+  margin-top: 25px;
+}
 header
 {
   background-color: #e5e5e5;
@@ -82,18 +86,13 @@ header
   background-size: cover;
   
 }
-table{
-  margin-left:auto;
-  margin-right:auto;
-}
 tbody{
   margin-left:auto;
   margin-right:auto;
+  text-align:center!important;
 }
 tr{
   font-size:16px;
-  margin-left:auto;
-  margin-right:auto;
 }
 button {
   outline: none;
@@ -213,11 +212,10 @@ table
   display: block;
   /*margin-top: 15vh;*/
   overflow: scroll;
-  align-content: center;
 }
 
 text{
   margin: auto 0 auto 0;
-  font-size:60px;
+  font-size:50px;
   Font-weight: bold;
 }
