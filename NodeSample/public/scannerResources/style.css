@@ -82,8 +82,19 @@ header
   background-size: cover;
   
 }
-
-
+table{
+  margin-left:auto;
+  margin-right:auto;
+}
+tbody{
+  margin-left:auto;
+  margin-right:auto;
+}
+tr{
+  font-size:16px;
+  margin-left:auto;
+  margin-right:auto;
+}
 button {
   outline: none;
   color: white;
@@ -102,7 +113,7 @@ button {
 #takePhotoButton {
   left: calc(50% - 40px);
   top: calc(50% - 40px);
-  width: 80px;
+  width: 80px; 
   height: 80px;
   background-image: url('img/ic_photo_camera_white_48px.svg');
   border-radius: 50%;

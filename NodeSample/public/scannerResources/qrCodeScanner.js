@@ -3,6 +3,7 @@ const video = document.createElement("video");
 const canvasElement = document.getElementById("qr-canvas");
 const canvas = canvasElement.getContext("2d");
 const btnScanQR = document.getElementById("btn-scan-qr");
+//$ = require('jquery')(new jsdom.JSDOM().window);;
 
 
 
@@ -26,20 +27,23 @@ navigator.mediaDevices
   });
 
 qrcode.callback = res => {
+  
+
+  
   if (res) {
     items.push(res);
     console.log(res);
-    console.log('adding!');
+    console.log('adding!'); 
     if(!(lastScanned == res)){
-      var inner = document.getElementById('itemTable').insertRow();
-      var cell1 = inner.insertCell(0);
+      console.log(res);
+      const inner = document.getElementById('itemTable').insertRow();
+      const cell1 = inner.insertCell(0);
       cell1.innerHTML = res;
       //if the qr code scans out to a function call, exec()
       //that function call should be endOrder();
       if(res.includes("()")){
         eval(res);
       }
-      alert('Added '+ res +' to the list!');
     }
     lastScanned = res;
     tick();
