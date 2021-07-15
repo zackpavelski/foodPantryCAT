@@ -8,6 +8,9 @@ exports.login = function (req, res, next) {
 exports.dashboard = function(req, res, next){
     res.render('dashboard.html', {message:""});
 }
+exports.studentDash = function(req, res, next){
+    res.render('studentDash.html', {message:""});
+}
 exports.inventory = function(req, res, next){
     res.render('inventory.html', {message:""});
 }
@@ -28,6 +31,9 @@ exports.signup = function(req, res, next){
 }
 exports.users = function(req, res, next){
     res.render('users.html', {message:""});
+}
+exports.history = function(req, res, next){
+    res.render('history.html', {message:""});
 }
 exports.switch = function(req, res, next){
     res.render('switchPantry.html', {message:""});
