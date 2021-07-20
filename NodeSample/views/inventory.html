@@ -56,6 +56,7 @@
         <br>
 
         <h2>Items Checked Out by (name)</h2>
+        <button type="submit" id="findPerson" onclick="popup()">Refresh Checkouts</button>
         <table class="table_background" id="checkOutTable" >
             <tr>
                 <th>Name</th>
@@ -80,7 +81,7 @@
         <h2>Inventory</h2>
         <form method="post" action="/loadInventory">
             <fieldset>
-                <button type="submit">SIGN UP</button>
+                <button type="submit" id="refresh">Refresh Inventory</button>
             </fieldset>
         </form>
 
@@ -106,6 +107,12 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/inventory.js"></script>
+    <script>
+        function popup()
+        {
+            window.alert("Button Clicked")
+        }
+    </script>
     <!-- end of javascript files -->
 
 </body>
