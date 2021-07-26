@@ -83,6 +83,7 @@
 .select-items div:hover, .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 </style>
 </head>     
 
@@ -113,7 +114,7 @@
 <h2>Switch Pantry</h2>
 
 <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
-<div class="custom-select" style="width:200px;">
+<div class="custom-select" style="width:200px; height: auto;">
   <select>
     <option value="0">Select School:</option>
     <option value="1">Lakewood HS</option>
@@ -121,6 +122,11 @@
     <option value="3">Hollins HS</option>
   </select>
 </div>
+<div>
+  <input type="submit" value="Submit" >
+</div>
+
+
 
 <script>
 var x, i, j, l, ll, selElmnt, a, b, c;

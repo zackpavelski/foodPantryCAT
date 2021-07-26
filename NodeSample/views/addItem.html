@@ -88,21 +88,23 @@
                 " style="margin-left: 1%; border-radius: 10px; background-color: #ffc600; color: white; border: transparent; font-size: 19px; width: 100px; height: 40px; margin-top: 2px; text-align: center;"/>
                         <br>
                         <br>
-                <label class="control-label col-sm-2"
+
+
+
+                <form action="/insertInventory" method="POST">
+                    <fieldset>
+                        <label class="control-label col-sm-2"
                         for="content" style="font-size: 16px; margin-top: -1%; margin-left:-1%">
                         Item to Server:
                         </label>
-                <input type="text" size="60"
-                        maxlength="60" class="form-control"
-                        id="content" placeholder="Item Name" style="width: 100%; border-radius: 10px; background-color: white;" />
-                        
-                <input type="text" size="60"
-                        maxlength="60" class="form-control"
-                        id="content" placeholder="Item Quantity" style="width: 100%; border-radius: 10px; background-color: white;margin-top:5px;" />
-                        <br>
-                <button type="button" class="btn btn-default" id="generate" style="border-radius: 10px; background-color: #ffc600; color: white; border: transparent; font-size: 20px; margin-bottom: 10px;">
-                    Submit
-                </button>
+                        <input type="text" placeholder="Item Name" name="itemName" id="itemName" size="60" maxlength="60" class="form-control" style="width: 100%; border-radius: 10px; background-color: white;"/>
+                        <input type="text" placeholder="Item Quantity" name="itemQuantity" id="itemQuantity" size="60" maxlength="60" class="form-control" style="width: 100%; border-radius: 10px; background-color: white;" />
+                        <button type="submit" class="btn btn-default" style="border-radius: 10px; background-color: #ffc600; color: white; border: transparent; font-size: 20px; margin-bottom: 10px;">
+                            Submit
+                        </button>
+                    </fieldset>
+                </form>
+                
                         </div> 
                     </div>
                     <div class="form-group">

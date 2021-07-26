@@ -39,6 +39,7 @@ qrcode.callback = res => {
       const inner = document.getElementById('itemTable').insertRow();
       const cell1 = inner.insertCell(0);
       cell1.innerHTML = res;
+      items.push(res);
       //if the qr code scans out to a function call, exec()
       //that function call should be endOrder();
       if(res.includes("()")){
