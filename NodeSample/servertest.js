@@ -28,11 +28,15 @@ connection.connect(function(err){
     var password = 'goldgouse9';
     var saltRounds = 4;
 
-    var sqlq = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='pantrydb' AND `TABLE_NAME`='inventory';";
-    var selectquery = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='pantrydb' AND `TABLE_NAME`='pantryUsers';";
-
-    connection.query(sqlq, function(err, result){
+    var sqlq = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='pantrydb' AND `TABLE_NAME`='orders';";
+    var selectquery = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='pantrydb' AND `TABLE_NAME`='orders';";
+    var sql2 = "CREATE TABLE orders (id VARCHAR(100) NOT NULL AUTO INCREMENT, name VARCHAR(255), items VARCHAR(255), PRIMARY KEY(id))";
+    var sql = "CREATE TABLE orders (id INT, name VARCHAR(255), items VARCHAR(255))";  
+    var add = "CREATE TABLE orders (id int(11) NOT NULL AUTO_INCREMENT, name VARCHAR(100), items VARCHAR(255), date VARCHAR(255), PRIMARY KEY(id))"
+    connection.query("INSERT INTO orders (name, items, date) VALUES ('acdriiska', 'Chicken, Soup, Bread, Peas', '7/25/21')", function(err, result){
         if (err) throw err
         console.log(result);
     })
+   
+   
 });
