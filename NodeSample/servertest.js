@@ -27,10 +27,10 @@ connection.connect(function(err){
     var username = 'zack88690';
     var password = 'goldgouse9';
     var saltRounds = 4;
-    
+
     var sqlq = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='pantrydb' AND `TABLE_NAME`='inventory';";
     var selectquery = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='pantrydb' AND `TABLE_NAME`='pantryUsers';";
-    
+
     connection.query(sqlq, function(err, result){
         if (err) throw err
         console.log(result);

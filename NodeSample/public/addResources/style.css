@@ -370,3 +370,12 @@ h3{
   border: none;
   font-size: large;
 }
+
+#download
+{
+  margin: auto;
+  display: block;
+  text-align: center;
+  color: black;
+  font-size: 1.5vw;
+}
