@@ -66,6 +66,7 @@
             <div class="row">
                 <div class="col-lg-9">
                     <h2 class="title-1 m-b-25">Recent Orders</h2>
+                    <button id="refreshOrder" onclick="popup()">Refresh Recent Orders</button>
                     <div class="table-responsive table--no-card m-b-40">
                         <table class="table table-borderless table-striped table-earning">
                             <thead>
@@ -161,6 +162,13 @@
                 $('.check').not(this).prop('checked', false);
             });
         });
+        </script>
+        <!--Checks to see if button is working-->
+        <script>
+            function popup()
+            {
+                window.alert("Button Clicked");
+            }
         </script>
 
  

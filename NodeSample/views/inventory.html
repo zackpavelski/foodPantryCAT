@@ -56,6 +56,7 @@
         <br>
 
         <h2>Items Checked Out by (name)</h2>
+        <button type="submit" id="findPerson" onclick="popup()">Refresh Checkouts</button>
         <table class="table_background" id="checkOutTable" >
             <tr>
                 <th>Name</th>
@@ -78,6 +79,12 @@
         </table>
 
         <h2>Inventory</h2>
+        <form method="post" action="/loadInventory">
+            <fieldset>
+                <button type="submit" id="refresh">Refresh Inventory</button>
+            </fieldset>
+        </form>
+
         <table class="table_background" id="inventoryTable" >
             <tr>
                 <th>ID</th>
@@ -85,32 +92,32 @@
                 <th>Category</th>
                 <th>Qty</th>
             </tr>
-            <tr>
-                <td>60bf79cd514cc0c8a230ff7b</td>
-                <td>Kraft Mac n Cheese</td>
-                <td>Packaged Entree</td>
-                <td>99</td>
-            </tr>
-            <tr>
-                <td>478234723647635fjsfhdssd</td>
-                <td>Macaroni</td>
-                <td>Pasta</td>
-                <td>99</td>
-            </tr>
+            
 
         </table>
 
     </div>
 
     <!-- Optional JavaScript -->
-
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <Script>
+        
+    </Script>
     <script src="js/jquery-3.3.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/inventory.js"></script>
+    <script>
+        function popup()
+        {
+            window.alert("Button Clicked")
+        }
+    </script>
     <!-- end of javascript files -->
 
 </body>
+
+
 </div>
 </div>
 </html>

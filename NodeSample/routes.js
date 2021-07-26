@@ -4,6 +4,7 @@ var jsdom = require('jsdom');
 $ = require('jquery')(new jsdom.JSDOM().window);;
 var bcrypt = require('bcrypt');
 var LocalStorage = require('node-localstorage').LocalStorage;
+const { Console } = require('console');
 localStorage = new LocalStorage('./scratch');
 
 
@@ -13,16 +14,38 @@ exports.setRequestUrl=function(app){
 
     app.get('/', user.login);
     app.get('/dashboard', user.dashboard);
+    app.get('/studentDash', user.studentDash);
     app.get('/inventory', user.inventory);
     app.get('/additem', user.additem);
     app.get('/scanner', user.scanner);
     app.get('/account', user.account);
     app.get('/signup', user.signup);
     app.get('/users', user.users);
+    app.get('/history', user.history);
     app.get('/switch', user.switch);
     app.get('/forgotPass', user.forgotPass);
     app.get('/thank', user.thank);
     
+    app.post('/loadInventory', function(req,response)
+    {   
+        var connection = mysql.createConnection({
+            host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
+            port: '3306',
+            user: 'pantryAdmin',
+            password: 'Pantry21!',
+            database: 'pantrydb'
+        });
+        console.log('CLICK CLACKLY CLICK');
+        connection.query('SELECT * FROM inventory', function(err, result){
+            if (err) throw err
+            Object.keys(result).forEach(function(key){
+                const row = result[key];
+                const inner = document.getElementById('checkOutTable').insertRow();
+                const cell1 = inner.insertCell(0);
+                cell1.innerHTML = row;
+            })
+        })
+    });
     app.post('/createUser', function(req, response) {
     
 
@@ -103,6 +126,8 @@ exports.setRequestUrl=function(app){
         });
     
     });
+
+    
 
   
 

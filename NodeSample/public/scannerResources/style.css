@@ -17,7 +17,11 @@ body {
   left: 0;
  
 }
-
+h1 {
+  text-align: center; 
+  font-size: 40px; 
+  margin-top: 25px;
+}
 header
 {
   background-color: #e5e5e5;
@@ -82,8 +86,14 @@ header
   background-size: cover;
   
 }
-
-
+tbody{
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center!important;
+}
+tr{
+  font-size:16px;
+}
 button {
   outline: none;
   color: white;
@@ -102,7 +112,7 @@ button {
 #takePhotoButton {
   left: calc(50% - 40px);
   top: calc(50% - 40px);
-  width: 80px;
+  width: 80px; 
   height: 80px;
   background-image: url('img/ic_photo_camera_white_48px.svg');
   border-radius: 50%;
@@ -202,11 +212,10 @@ table
   display: block;
   /*margin-top: 15vh;*/
   overflow: scroll;
-  align-content: center;
 }
 
 text{
   margin: auto 0 auto 0;
-  font-size:60px;
+  font-size:50px;
   Font-weight: bold;
 }

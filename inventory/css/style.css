@@ -312,15 +312,17 @@ h3{
   background-color: /*#eee;*/#eff2f5
 }
 #checkOutTable tr:nth-child(odd) {
-  background-color: /*#fff*/rgba(114, 114, 113, 0.2);
+  background-color: /*#fff*/rgba(114, 114, 113);
   padding: 10px 10px 10px 10px;
 }
 #checkOutTable th {
   color: white;
-  background-color: #b86451; /*header of checkout table*/
+  background-color:#333333; /*header of checkout table*/
   font-size: 18px;
   text-align: left;
   padding: 5px 5px 5px 5px;
+  border-radius: 2pt;
+    box-shadow: 0 0 0 1pt grey;
 }
 
 #inventoryTable {
@@ -328,6 +330,8 @@ h3{
   font-weight: 400;
     font-style: normal;
     border-collapse: collapse;
+    border-radius: 2pt;
+    box-shadow: 0 0 0 1pt grey;
 }
 #inventoryTable tr:nth-child(even) {
   background-color: #eee;
@@ -339,7 +343,35 @@ h3{
   font-size: 16px;
     text-align: left;
     padding: 5px 5px 5px 5px;  
-    background-color: #15446e;
+    background-color: #333333;
     color: white;
 
+}
+
+#firstname
+{
+  border-radius: 5px;
+}
+
+#lastname
+{
+  border-radius: 5px;
+}
+
+#submit
+{
+  border-radius: 5px;
+  background-color: #F9C506; 
+  color: white;
+}
+
+#checkOutTable
+{
+  border-radius: 10px;
+
+}
+
+#schools
+{
+  border-radius: 5px;
 }
