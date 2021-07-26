@@ -45,10 +45,11 @@ connection.connect(function(err){
         })
     })*/
 
-    connection.query('SELECT * FROM pantryUsers', function(err, result){
+    /*connection.query('SELECT * FROM pantryUsers', function(err, result){
         if (err) throw err
         console.log(result)
-    });
+    });*/
+
     //Use to add colums
 
     /*var sql =  'ALTER table inventory add column (item_quantity varchar(255))';
@@ -62,5 +63,12 @@ connection.connect(function(err){
     if (err) throw err;
     console.log("1 record inserted");
   });*/
+
+
+  connection.query('SELECT * FROM inventory', function(err, result){
+    if (err) throw err
+    console.log(result);
+  });
+  
 
 });
