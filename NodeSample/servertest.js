@@ -13,6 +13,8 @@ connection.connect(function(err){
         console.error('Db connection failed: ' + err.stack);
         return;
     }
+
+
     console.log('Connected!');
     var username = 'zack88690';
     var fullName = 'Zachary Pavelski';
@@ -26,41 +28,11 @@ connection.connect(function(err){
     var password = 'goldgouse9';
     var saltRounds = 4;
     
-    
+    var sqlq = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='pantrydb' AND `TABLE_NAME`='inventory';";
     var selectquery = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='pantrydb' AND `TABLE_NAME`='pantryUsers';";
     
-    /*var sql = "CREATE TABLE orders (name VARCHAR(255), address VARCHAR(255))";
-    connection.query(sql, function (err, result) {
-      if (err) throw err;
-      console.log("Table created");
-    });*/
-
-    
-
-    /*connection.query('SELECT * FROM inventory', function(err, result){
+    connection.query(sqlq, function(err, result){
         if (err) throw err
-        Object.keys(result).forEach(function(key){
-            var row = result[key];
-            console.log(row.item_name);
-        })
-    })*/
-
-    connection.query('SELECT * FROM pantryUsers', function(err, result){
-        if (err) throw err
-        console.log(result)
-    });
-    //Use to add colums
-
-    /*var sql =  'ALTER table inventory add column (item_quantity varchar(255))';
-  connection.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("Collum Added");
-  });*/
-
-  /*var sql = "INSERT INTO inventory (attributes_id, item_name, item_quantity) VALUES ('1', 'Pasta', '37')";
-  connection.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("1 record inserted");
-  });*/
-
+        console.log(result);
+    })
 });

@@ -26,6 +26,20 @@ exports.setRequestUrl=function(app){
     app.get('/forgotPass', user.forgotPass);
     app.get('/thank', user.thank);
     
+
+    app.post('/insertInventory', function(req, response){
+        var connection = mysql.createConnection({
+            host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
+            port: '3306',
+            user: 'pantryAdmin',
+            password: 'Pantry21!',
+            database: 'pantrydb'
+        });
+        connection.query(`INSERT INTO inventory (item_name, item_quantity) VALUES (${request.body.itemName}, ${request.body.itemQuantity});`, function(err, result){
+            if(err) throw err;
+            Console.log('1 row inserted');
+        })
+    });
     app.post('/loadInventory', function(req,response)
     {   
         var connection = mysql.createConnection({
@@ -37,14 +51,43 @@ exports.setRequestUrl=function(app){
         });
         console.log('CLICK CLACKLY CLICK');
         connection.query('SELECT * FROM inventory', function(err, result){
-            if (err) throw err
+            if (err) throw err;
             Object.keys(result).forEach(function(key){
                 const row = result[key];
-                const inner = document.getElementById('checkOutTable').insertRow();
-                const cell1 = inner.insertCell(0);
-                cell1.innerHTML = row;
+                
             })
         })
+    });
+    app.post('/updateUser', function(req, response){
+        var connection = mysql.createConnection({
+            host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
+            port: '3306',
+            user: 'pantryAdmin',
+            password: 'Pantry21!',
+            database: 'pantrydb'
+        });
+        connection.connect(function(err){
+            if(err){
+                console.error('Db connection failed: ' + err.stack);
+                return;
+            }
+            
+            var username = req.body.username;
+            var fullName = req.body.firstName + req.body.lastName;
+            var password;
+            var saltRounds = 4;
+            bcrypt.hash(req.body.new_password, saltRounds, function(err, hash) {
+                console.log(hash);
+                password = hash;
+              });
+
+            var sql = `UDPATE pantryUsers SET fullName = '${firstName + lastName}', username = '${username}', password = '${password}' WHERE username = '$username'`;
+            connection.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });  
+            response.redirect('/');
+        });
     });
     app.post('/createUser', function(req, response) {
     
@@ -75,7 +118,6 @@ exports.setRequestUrl=function(app){
             var numPeople = req.body.numPeople;
             var undereighteen = req.body.numMinors;
 
-            //var sql = `INSERT INTO scoutingDataTab (compId, teleop_cargoTot, teleop_hatchTot) VALUES (${compId}, ${teleop_noOfCargo}, ${teleop_noOfHatch})`;
             var sql = `INSERT INTO pantryUsers (fullName, username, numPeople, numMinors, zipCode, password) VALUES ('${fullName}', '${username}', '${numPeople}', '${undereighteen}',  '${zipCode}', '${password}');`;   
             connection.query(sql, function (err, result) {
                 if (err) throw err;
