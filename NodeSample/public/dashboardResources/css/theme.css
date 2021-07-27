@@ -3264,7 +3264,7 @@ section {
     -moz-border-radius: 10px;
     border-radius: 10px;
     background: #fff;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .au-card--border {
