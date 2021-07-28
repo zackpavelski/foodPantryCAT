@@ -115,18 +115,37 @@
 
 <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
 <div class="custom-select" style="width:200px; height: auto;">
-  <select>
-    <option value="0">Select School:</option>
-    <option value="1">Lakewood HS</option>
-    <option value="2">Gibbs HS</option>
-    <option value="3">Hollins HS</option>
-  </select>
-</div>
-<div>
-  <input type="submit" value="Submit" >
+  <form id="school" name="school" action="/changeSchool" method="POST">
+    <fieldset>
+      <select id="school">
+        <option value="0">Select School:</option>
+        <option value="1">Lakewood</option>
+        <option value="2">Gibbs</option>
+        <option value="3">Hollins</option>
+      </select>
+      <input type="submit" value="Submit">
+    </fieldset>
+  </form>
 </div>
 
-
+<script>
+  function changeSchool(){
+             //ajax call
+              $.ajax({
+                       url: '/changeSchool',
+                       method:'POST'
+                     }).done(function(data){
+                         if(data.success){
+                            console.log("Success");
+                             return;
+                         }
+                     }).fail(function(){
+                        //do nothing ....
+                         console.log('failed...');
+                         return;
+                     });
+             };
+</script>
 
 <script>
 var x, i, j, l, ll, selElmnt, a, b, c;

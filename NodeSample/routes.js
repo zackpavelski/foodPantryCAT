@@ -112,6 +112,20 @@ exports.setRequestUrl=function(app){
 
         })
     });
+    app.post('/changeSchool', function(req, response){
+        var connection = mysql.createConnection({
+            host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
+            port: '3306',
+            user: 'pantryAdmin',
+            password: 'Pantry21!',
+            database: 'pantrydb'
+        });
+        var sql = `UPDATE pantryUsers SET school = '${req.body.school}' WHERE username = '${localStorage.getItem('name')}' `
+        connection.query(sql, function(err, result){
+            if(err) throw err;
+            console.log("Updated.");
+        })
+    })
     app.post('/updateUser', function(req, response){
         var connection = mysql.createConnection({
             host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
@@ -135,7 +149,7 @@ exports.setRequestUrl=function(app){
                 password = hash;
               });
 
-            var sql = `UDPATE pantryUsers SET fullName = '${firstName + lastName}', username = '${username}', password = '${password}' WHERE username = '$username'`;
+            var sql = `UDPATE pantryUsers SET fullName = '${firstName + lastName}', username = '${username}', password = '${password}' WHERE username = '${username}'`;
             connection.query(sql, function (err, result) {
                 if (err) throw err;
                 console.log("1 record inserted");
