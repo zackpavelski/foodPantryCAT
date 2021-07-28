@@ -345,8 +345,8 @@ exports.setRequestUrl=function(app){
             console.log(results + ' results');
             if (results.length > 0) {
                 //REDIRECT TO DASHBOARD
-                localStorage.setItem('name', username);
-                localStorage.setItem('school', results.school);
+                localStorage.setItem('name', req.body.username);
+                localStorage.setItem('school', results[0].school);
                 response.redirect('/dashboard');
 
             } else {
