@@ -3,11 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var urlHelper = require("./routes.js")
+var urlHelper = require("./routes/route.js")
 , http = require('http')
 , fs = require('fs')
 , config = require("./config")
 , mysql = require('mysql')
+var router = require('./routes/route');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -23,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(app.router);
+module.exports = router;
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
