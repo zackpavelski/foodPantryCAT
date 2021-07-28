@@ -153,6 +153,8 @@ exports.setRequestUrl=function(app){
     });
     app.post('/loadInventory', function(req,response)
     {   
+        var arr = '';
+
         var connection = mysql.createConnection({
             host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
             port: '3306',
@@ -160,22 +162,27 @@ exports.setRequestUrl=function(app){
             password: 'Pantry21!',
             database: 'pantrydb'
         });
-        connection.query('SELECT * FROM inventory', function(err, result){
+        connection.query('SELECT * FROM lhsInventory', function(err, result){
             if (err) throw err;
-            console.log(result);
-            var arr = '';
-            //console.log(rows.RowDataPacket[0].attributes_id);
             for (var i = 0; i < result.length; i++) {
                 var row = result[i];
-                arr += (' <tr> <td> ' + row.attributes_id + '</td> <td>'+ row.item_name + ' </td> <td>'+ row.item_quantity +' </td></tr>');
+                arr += (' <tr> <td> ' + String(row.id) + '</td> <td>'+ row.item_name + ' </td> <td>'+ row.item_quantity +' </td><td>'+row.school+'</td></tr>');
             }
-            /*Object.keys(rows).forEach(function(key){
-                const row = result[key];
-                arr += (' <tr> <td> ' + row.attributes_id + '</td> <td>'+ row.item_name + ' </td> '+ row.item_quantity +'</tr>');
-            })*/
-    
+        })
+        connection.query('SELECT * FROM hollinsInventory', function(err, result){
+            if (err) throw err;
+            for (var i = 0; i < result.length; i++) {
+                var row = result[i];
+                arr += (' <tr> <td> ' + String(row.id) + '</td> <td>'+ row.item_name + ' </td> <td>'+ row.item_quantity +' </td><td>'+row.school+'</td></tr>');
+            }
+        })
+        connection.query('SELECT * FROM gibsInventory', function(err, result){
+            if (err) throw err;
+            for (var i = 0; i < result.length; i++) {
+                var row = result[i];
+                arr += (' <tr> <td> ' + String(row.id) + '</td> <td>'+ row.item_name + ' </td> <td>'+ row.item_quantity +' </td><td>'+row.school+'</td></tr>');
+            }
             response.send({success: true, message: arr});
-
 
         })
     });

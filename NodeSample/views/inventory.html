@@ -40,22 +40,7 @@
     
 <div class="section__content section__content--p30">
     <div class="container" style="margin-left:-.7%">
-        <h2>Search Students<h4>&nbsp/&nbspLakewood(school)</h4></h2>
-        <form id="form" role="search">
-            <text>Enter:</text> <br><input type="search" id="firstName" name="q" placeholder="First Name" aria-label="Search through site content">
-            <br>
-            <input type="form" id="lastName" name="q" placeholder="Last Name" aria-label="Search through site content">
-            <br>
-            <text>School: </text> 
-            <br>
-            <select name="school" id="schools">
-                <option value="lakewood">Lakewood HS</option>
-                <option value="hollins">Hollins HS</option>
-                <option value="gibbs">Gibbs HS</option>
-            </select>
-            <br>
-            <button id="submit" onclick="pull()">Search</button>
-        </form>
+        <h2>Search Inventory<h4>&nbsp/&nbspAll Schools</h4></h2>
 
         <br>
 
@@ -82,6 +67,7 @@
                 <th>ID</th>
                 <th>Item Name</th>
                 <th>Qty</th>
+                <th>School</th>
             </tr>
             
 
@@ -136,6 +122,7 @@
     <script src="js/bootstrap.min.js"></script> 
     <script src="js/inventory.js"></script>
     <script>
+        
         function popup()
         {
             window.alert("Button Clicked")
