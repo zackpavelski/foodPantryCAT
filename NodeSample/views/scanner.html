@@ -42,7 +42,7 @@
         <a id="btn-scan-qr"></a>
         <canvas id="qr-canvas" style="margin-top: 5vh; width: 50vmax; z-index: 20; margin-left: auto; margin-right: auto; display: block; border-radius: 25px; border-color:  rgb(255, 159, 0); border-width: thick; border-style: solid; margin-top: 50px;" height="480" width="640"></canvas>
         <text>Items</text>
-        <form action="" method="">
+        <form action="/postOrder" method="POST">
           <fieldset>
             <div id="Table">
               <div id="listID" style="font-family: 'Noto Sans', 'Helvetica'; font-size: 20px; color:  #236dad; margin-top: -4vh; text-align: center; margin-right: auto; margin-left: auto; display: block;">
@@ -61,7 +61,7 @@
                   </tr>
                 
                 </table>
-                <button id="orderFin" onClick="" type="submit" style="scroll-margin-bottom:0vh; width: auto; margin-right: auto; margin-left: auto; display: block;">Finish Order</button>
+                <button id="orderFin" type="submit" style="scroll-margin-bottom:0vh; width: auto; margin-right: auto; margin-left: auto; display: block;">Finish Order</button>
               
               </div>
             </div>
