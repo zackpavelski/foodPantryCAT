@@ -67,7 +67,7 @@
                   </tr>
                 
                 </table>
-                <button id="orderFin" onClick="window.location.reload();" type="submit" style="scroll-margin-bottom:0vh; width: auto; margin-right: auto; margin-left: auto; display: block;">Finish Order</button>
+                <button id="orderFin" onClick="" type="submit" style="scroll-margin-bottom:0vh; width: auto; margin-right: auto; margin-left: auto; display: block;">Finish Order</button>
               
               </div>
             </div>
@@ -84,8 +84,29 @@
         
         
         
-      
-    
+      <p style="display:none" id="ordersID">
+      </p>
+    <script>
+               function submitOrders(){
+             //ajax call
+              $.ajax({
+                       url: '/postOrder',
+                       method:'POST',
+                       data: {
+                          items: document.getElementById('ordersID').innerHTML
+                        }
+                     }).done(function(data){
+                         if(data.success){
+                             console.log("Success");
+                             location.reload();
+                         }
+                     }).fail(function(){
+                        //do nothing ....
+                         console.log('failed...');
+                         return;
+                     });
+             };
+    </script>
     <script src="/scannerResources/qrCodeScanner.js"></script>
   </body>
   </div>

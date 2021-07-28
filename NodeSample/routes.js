@@ -42,6 +42,7 @@ exports.setRequestUrl=function(app){
     });
     app.post('/loadOrders', function(req,response)
     {   
+        var arr = '';
         var connection = mysql.createConnection({
             host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
             port: '3306',
@@ -49,27 +50,39 @@ exports.setRequestUrl=function(app){
             password: 'Pantry21!',
             database: 'pantrydb'
         });
-        connection.query('SELECT * FROM orders', function(err, result){
+        connection.query('SELECT * FROM lhsOrders', function(err, result){
             if (err) throw err;
             console.log(result);
-            var arr = '';
             var rows = JSON.parse(JSON.stringify(result[0]));
-            //console.log(rows.RowDataPacket[0].attributes_id);
             for (var i = 0; i < result.length; i++) {
                 var row = result[i];
-                //var add = "CREATE TABLE orders (id int(11) NOT NULL AUTO_INCREMENT, name VARCHAR(100), items VARCHAR(255), date VARCHAR(255), PRIMARY KEY(id))"
-
-                arr += ('<tr> <td>'+row.name +'</td> <td>'+ row.date + ' </td> <td>'+ row.items +' </td> <td>'+ row.id +'</td> </tr>');
+                arr += ('<tr> <td>'+row.name +'</td> <td>'+ row.items + ' </td> <td>'+ row.date +' </td> <td>'+ row.id +'</td> <td> '+row.school+'</td> </tr>');
             }
-            /*Object.keys(rows).forEach(function(key){
-                const row = result[key];
-                arr += (' <tr> <td> ' + row.attributes_id + '</td> <td>'+ row.item_name + ' </td> '+ row.item_quantity +'</tr>');
-            })*/
-    
+            
+            //response.send({success: true, message: arr});
+        })
+        connection.query('SELECT * FROM hollinsOrders', function(err, result){
+            if (err) throw err;
+            console.log(result);
+            var rows = JSON.parse(JSON.stringify(result[0]));
+            for (var i = 0; i < result.length; i++) {
+                var row = result[i];
+                arr += ('<tr> <td>'+row.name +'</td> <td>'+ row.items + ' </td> <td>'+ row.date +' </td> <td>'+ row.id +'</td> <td> '+row.school+'</td> </tr>');
+            }
+            //response.send({success: true, message: arr});
+        })
+        connection.query('SELECT * FROM gibsOrders', function(err, result){
+            if (err) throw err;
+            console.log(result);
+            var rows = JSON.parse(JSON.stringify(result[0]));
+            for (var i = 0; i < result.length; i++) {
+                var row = result[i];
+                arr += ('<tr> <td>'+row.name +'</td> <td>'+ row.items + ' </td> <td>'+ row.date +' </td> <td>'+ row.id +'</td> <td> '+row.school+'</td> </tr>');
+            }
             response.send({success: true, message: arr});
 
-
         })
+        
     });
     app.post('/loadInventory', function(req,response)
     {   
@@ -80,12 +93,10 @@ exports.setRequestUrl=function(app){
             password: 'Pantry21!',
             database: 'pantrydb'
         });
-        console.log('CLICK CLACKLY CLICK');
         connection.query('SELECT * FROM inventory', function(err, result){
             if (err) throw err;
             console.log(result);
             var arr = '';
-            var rows = JSON.parse(JSON.stringify(result[0]));
             //console.log(rows.RowDataPacket[0].attributes_id);
             for (var i = 0; i < result.length; i++) {
                 var row = result[i];
@@ -160,8 +171,9 @@ exports.setRequestUrl=function(app){
             var zipCode = req.body.zipCode;
             var numPeople = req.body.numPeople;
             var undereighteen = req.body.numMinors;
+            var school = req.body.school;
 
-            var sql = `INSERT INTO pantryUsers (fullName, username, numPeople, numMinors, zipCode, password) VALUES ('${fullName}', '${username}', '${numPeople}', '${undereighteen}',  '${zipCode}', '${password}');`;   
+            var sql = `INSERT INTO pantryUsers (fullName, username, numPeople, numMinors, zipCode, password, school) VALUES ('${fullName}', '${username}', '${numPeople}', '${undereighteen}',  '${zipCode}', '${password}', '${school}');`;   
             connection.query(sql, function (err, result) {
                 if (err) throw err;
                 console.log("1 record inserted");
@@ -171,7 +183,51 @@ exports.setRequestUrl=function(app){
         
         
     });
+    app.post('/postOrder', function(req, response, items){
+        var connection = mysql.createConnection({
+            host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
+            port: '3306',
+            user: 'pantryAdmin',
+            password: 'Pantry21!',
+            database: 'pantrydb'
+        });
+        connection.connect(function(err){
+            if(err){
+                console.error('Db connection failed: ' + err.stack);
+                return;
+            }
+        });
+        var name = localStorage.getItem('name');
+        var itemList = items;
+        var school = localStorage.getItem('school');
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
 
+        today = mm + '/' + dd + '/' + yyyy;
+        switch (school) {
+            case school == 'Gibbs':
+                var sql = `INSERT INTO gibsOrders (name, items, date, school) VALUES ('${name}', '${itemList}', '${today}', '${school}')`;
+                break;
+            case school == 'Hollins':
+                var sql = `INSERT INTO hollinsOrders (name, items, date, school) VALUES ('${name}', '${itemList}', '${today}', '${school}')`;
+                break;
+            case school = 'Lakewood':
+                var sql = `INSERT INTO lhsOrders (name, items, date, school) VALUES ('${name}', '${itemList}', '${today}', '${school}')`;
+                break;
+            default:
+                break;
+        }
+        connection.query(sql, function(error, results){
+            if(err) throw err;
+            console.log("Success");
+            response.send({success: true});
+
+        });
+
+        //get data
+    });
 
     app.post('/auth', function(req, response) {
         var connection = mysql.createConnection({
@@ -202,6 +258,7 @@ exports.setRequestUrl=function(app){
             if (results.length > 0) {
                 //REDIRECT TO DASHBOARD
                 localStorage.setItem('name', username);
+                localStorage.setItem('school', results.school);
                 response.redirect('/dashboard');
 
             } else {
