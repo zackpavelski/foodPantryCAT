@@ -13,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="/scannerResources/style.css" />
     
   </head>
-  
+
   <body>
         <div class="page-container">
     <!--navbar start-->
@@ -36,15 +36,11 @@
         </div>
     </nav>
     <!--navbar ends-->
-
-
     <div id="container">
       <h1 id="header">Food Scanner</h1>
       <div id="vid_container" style="z-index: 2; width: auto; height: 100vh; margin-top: -5vh;">
         <a id="btn-scan-qr"></a>
         <canvas id="qr-canvas" style="margin-top: 5vh; width: 50vmax; z-index: 20; margin-left: auto; margin-right: auto; display: block; border-radius: 25px; border-color:  rgb(255, 159, 0); border-width: thick; border-style: solid; margin-top: 50px;" height="480" width="640"></canvas>
-
-        <!--This is the table that the items get put into-->
         <text>Items</text>
         <form action="" method="">
           <fieldset>
@@ -56,9 +52,7 @@
                     <th>Foods Scanned</th>
                 </tr>
                   <tbody><tr>
-                    <!--Items text moved above-->
                   </tr>
-                
                 </tbody></table>
                 
                   <tr>
@@ -73,41 +67,32 @@
             </div>
           </fieldset>
         </form>
-        
-
-
-
-
       </div>
-    
-      
-        
-        
-        
       <p style="display:none" id="ordersID">
       </p>
-    <script>
-               function submitOrders(){
-             //ajax call
-              $.ajax({
-                       url: '/postOrder',
-                       method:'POST',
-                       data: {
-                          items: document.getElementById('ordersID').innerHTML
-                        }
-                     }).done(function(data){
-                         if(data.success){
-                             console.log("Success");
-                             location.reload();
-                         }
-                     }).fail(function(){
-                        //do nothing ....
-                         console.log('failed...');
-                         return;
-                     });
-             };
-    </script>
+    
     <script src="/scannerResources/qrCodeScanner.js"></script>
+    <script>
+      function submitOrders(){
+    //ajax call
+     $.ajax({
+              url: '/postOrder',
+              method:'POST',
+              data: {
+                 items: document.getElementById('ordersID').innerHTML
+               }
+            }).done(function(data){
+                if(data.success){
+                    console.log("Success");
+                    location.reload();
+                }
+            }).fail(function(){
+               //do nothing ....
+                console.log('failed...');
+                return;
+            });
+    };
+</script>
   </body>
   </div>
 </html>

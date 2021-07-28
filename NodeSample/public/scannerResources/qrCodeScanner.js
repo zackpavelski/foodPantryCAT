@@ -12,7 +12,7 @@ var lastScanned = "";
 var items = [];
 
 navigator.mediaDevices
-  .getUserMedia({ video: { facingMode: "environment" } })
+  .getUserMedia({ video:true })
   .then(function(stream) {
     scanning = true;
     btnScanQR.hidden = true;
@@ -27,9 +27,6 @@ navigator.mediaDevices
   });
 
 qrcode.callback = res => {
-  
-
-  
   if (res) {
     items.push(res);
     console.log(res);
@@ -40,7 +37,7 @@ qrcode.callback = res => {
       const cell1 = inner.insertCell(0);
       cell1.innerHTML = res;
       document.getElementById("ordersID").innerHTML += res + ', ';
-      console.log(document.getElementById("ordersID").innerHTML += res);
+      //console.log(document.getElementById("ordersID").innerHTML += res);
       //if the qr code scans out to a function call, exec()
       //that function call should be endOrder();
       if(res.includes("()")){
