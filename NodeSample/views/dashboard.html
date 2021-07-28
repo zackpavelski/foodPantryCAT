@@ -178,40 +178,13 @@
                                 <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
                                     <div class="au-card-inner">
                                         <div class="table-responsive">
-                                            <table class="table table-top-countries">
+                                            <table class="table table-top-countries" id="favoritesTable">
                                                 <tbody>
                                                     <tr>
-                                                        <td>Mac n Cheese</td>
-                                                        <td class="text-right">23</td>
+                                                        <th>Items</th>
+                                                        <th>School</th>
                                                     </tr>
-                                                    <tr>
-                                                        <td>Soup</td>
-                                                        <td class="text-right">18</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Bread</td>
-                                                        <td class="text-right">17</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Turkey</td>
-                                                        <td class="text-right">15</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Ramen</td>
-                                                        <td class="text-right">12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Pancake Mix</td>
-                                                        <td class="text-right">10</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Canned Corn</td>
-                                                        <td class="text-right">9</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Spaghheti Sauce</td>
-                                                        <td class="text-right">6</td>
-                                                    </tr>
+                                                    
                                                 </tbody>
                                             </table>
                                         </div>
@@ -270,6 +243,24 @@
                      }).done(function(data){
                          if(data.success){
                              $('#recentOrders').append(data.message);
+                             changeDom2();
+                             return;
+                         }
+                     }).fail(function(){
+                        //do nothing ....
+                         console.log('failed...');
+                         return;
+                     });
+             };
+             function changeDom2(){
+             console.log('connecting');
+             //ajax call
+              $.ajax({
+                       url: '/loadFavorites',
+                       method:'POST'
+                     }).done(function(data){
+                         if(data.success){
+                             $('#favoritesTable').append(data.message);
                              return;
                          }
                      }).fail(function(){

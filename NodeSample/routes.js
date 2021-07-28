@@ -8,6 +8,25 @@ const { Console } = require('console');
 localStorage = new LocalStorage('./scratch');
 
 
+function foo (array) {
+    let a = [],
+        b = [],
+        arr = [...array], // clone array so we don't change the original when using .sort()
+        prev;
+
+    arr.sort();
+    for (let element of arr) {
+        if (element !== prev) {
+        a.push(element);
+        b.push(1);
+        }
+        else ++b[b.length - 1];
+        prev = element;
+    }
+
+    return [a, b];
+    }
+    
 exports.setRequestUrl=function(app){
     var user = require('./controllers/user')
         ,indexObj = require('./controllers/index');
@@ -83,6 +102,54 @@ exports.setRequestUrl=function(app){
 
         })
         
+    });
+    app.post('/loadFavorites', function(req, response){
+        var arr = '';
+        var connection = mysql.createConnection({
+            host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
+            port: '3306',
+            user: 'pantryAdmin',
+            password: 'Pantry21!',
+            database: 'pantrydb'
+        });
+        connection.query('SELECT * FROM lhsOrders', function(err, result){
+            if (err) throw err;
+            for (var i = 0; i < result.length; i++) {
+                var row = result[i];
+                var results  = foo(row.items.split(','));
+                var splits = row.items.split(',');
+                for(var i = 0; i < results[0].length; i++){
+                    arr += '<tr><td>'+splits[i]+':'+results[1][i]+'</td><td>'+row.school+'</td></tr>'
+
+                }
+            }
+        })
+        connection.query('SELECT * FROM hollinsOrders', function(err, result){
+            if (err) throw err;
+            for (var i = 0; i < result.length; i++) {
+                var row = result[i];
+                var results  = foo(row.items.split(','));
+                var splits = row.items.split(',');
+                for(var i = 0; i < results[0].length; i++){
+                    arr += '<tr><td>'+splits[i]+':'+results[1][i]+'</td><td>'+row.school+'</td></tr>'
+
+                }
+            }
+        })
+        connection.query('SELECT * FROM gibsOrders', function(err, result){
+            if (err) throw err;
+            for (var i = 0; i < result.length; i++) {
+                var row = result[i];
+                var results  = foo(row.items.split(','));
+                var splits = row.items.split(',');
+                for(var i = 0; i < results[0].length; i++){
+                    arr += '<tr><td>'+splits[i]+':'+results[1][i]+'</td><td>'+row.school+'</td></tr>'
+
+                }
+            }
+            response.send({success: true, message: arr});
+
+        })
     });
     app.post('/loadInventory', function(req,response)
     {   
