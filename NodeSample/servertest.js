@@ -33,7 +33,7 @@ connection.connect(function(err){
     var sql2 = "CREATE TABLE orders (id VARCHAR(100) NOT NULL AUTO INCREMENT, name VARCHAR(255), items VARCHAR(255), PRIMARY KEY(id))";
     var sql = "CREATE TABLE orders (id INT, name VARCHAR(255), items VARCHAR(255))";  
     var add = "CREATE TABLE orders (id int(11) NOT NULL AUTO_INCREMENT, name VARCHAR(100), items VARCHAR(255), date VARCHAR(255), PRIMARY KEY(id))"
-    connection.query("INSERT INTO orders (name, items, date) VALUES ('acdriiska', 'Chicken, Soup, Bread, Peas', '7/25/21')", function(err, result){
+    connection.query("SELECT * FROM pantryUsers", function(err, result){
         if (err) throw err
         console.log(result);
     })
