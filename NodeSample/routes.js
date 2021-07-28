@@ -271,7 +271,7 @@ exports.setRequestUrl=function(app){
         
         
     });
-    app.post('/postOrder', function(req, response, items){
+    app.post('/postOrder', function(req, response){
         var connection = mysql.createConnection({
             host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
             port: '3306',
@@ -286,31 +286,33 @@ exports.setRequestUrl=function(app){
             }
         });
         var name = localStorage.getItem('name');
-        var itemList = items;
+        var itemList = req.body.ordersID;
+        console.log("Items: " + itemList);
         var school = localStorage.getItem('school');
+        console.log('School: ' +school);
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0');
         var yyyy = today.getFullYear();
 
         today = mm + '/' + dd + '/' + yyyy;
+        var sql;
         switch (school) {
             case school == 'Gibbs':
-                var sql = `INSERT INTO gibsOrders (name, items, date, school) VALUES ('${name}', '${itemList}', '${today}', '${school}')`;
+                sql = `INSERT INTO gibsOrders (name, items, date, school) VALUES ('${name}', '${itemList}', '${today}', '${school}')`;
                 break;
             case school == 'Hollins':
-                var sql = `INSERT INTO hollinsOrders (name, items, date, school) VALUES ('${name}', '${itemList}', '${today}', '${school}')`;
+                sql = `INSERT INTO hollinsOrders (name, items, date, school) VALUES ('${name}', '${itemList}', '${today}', '${school}')`;
                 break;
             case school = 'Lakewood':
-                var sql = `INSERT INTO lhsOrders (name, items, date, school) VALUES ('${name}', '${itemList}', '${today}', '${school}')`;
+                sql = `INSERT INTO lhsOrders (name, items, date, school) VALUES ('${name}', '${itemList}', '${today}', '${school}')`;
                 break;
             default:
                 break;
         }
         connection.query(sql, function(error, results){
-            if(err) throw err;
+            if(error) throw error;
             console.log("Success");
-            response.send({success: true});
 
         });
 
