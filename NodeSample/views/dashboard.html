@@ -79,8 +79,7 @@
                             <div class="col-md-12">
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Lakewood Pantry</h2>
-                                    <button class="au-btn au-btn-icon au-btn--blue" onclick="loadAddItem()">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -163,8 +162,8 @@
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
-                                                <th>Date</th>
                                                 <th>Items</th>
+                                                <th>Date</th>
                                                 <th>Order ID</th>
                                                 <th>School</th>
                                             </tr>
@@ -181,8 +180,8 @@
                                             <table class="table table-top-countries" id="favoritesTable">
                                                 <tbody>
                                                     <tr>
-                                                        <th>Items</th>
-                                                        <th>School</th>
+                                                        <th style="color: white">Items</th>
+                                                        <th style="color: white"    >School</th>
                                                     </tr>
                                                     
                                                 </tbody>
@@ -253,7 +252,7 @@
                      });
              };
              function changeDom2(){
-             console.log('connecting');
+            console.log('connecting');
              //ajax call
               $.ajax({
                        url: '/loadFavorites',

@@ -42,8 +42,6 @@
         <a id="btn-scan-qr"></a>
         <canvas id="qr-canvas" style="margin-top: 5vh; width: 50vmax; z-index: 20; margin-left: auto; margin-right: auto; display: block; border-radius: 25px; border-color:  rgb(255, 159, 0); border-width: thick; border-style: solid; margin-top: 50px;" height="480" width="640"></canvas>
         <text>Items</text>
-        <form action="/postOrder" method="POST">
-          <fieldset>
             <div id="Table">
               <div id="listID" style="font-family: 'Noto Sans', 'Helvetica'; font-size: 20px; color:  #236dad; margin-top: -4vh; text-align: center; margin-right: auto; margin-left: auto; display: block;">
               
@@ -54,45 +52,47 @@
                   <tbody><tr>
                   </tr>
                 </tbody></table>
-                
                   <tr>
                     <div style="margin-left: auto; margin-right: auto; display: block">
                   </div>
                   </tr>
-                
                 </table>
-                <button id="orderFin" type="submit" style="scroll-margin-bottom:0vh; width: auto; margin-right: auto; margin-left: auto; display: block;">Finish Order</button>
-                <p style="display:none" id="ordersID">
+                <p type="text" style="display:none" id="ordersID" name="ordersID"></p>
+
+                <button id="orderFin" onclick="submitOrders()" style="scroll-margin-bottom:0vh; width: auto; margin-right: auto; margin-left: auto; display: block;">Finish Order</button>
 
               </div>
             </div>
-          </fieldset>
-        </form>
       </div>
-      </p>
-    
+      <script>
+        function submitOrders(){
+          console.log('submitting...');
+      //ajax call
+       $.ajax({
+                url: '/postOrder',
+                method:'POST',
+                data: {
+                   items: document.getElementById('ordersID').innerHTML
+                 }
+              }).done(function(data){
+                  if(data.success){
+                      console.log("Success");
+                      location.reload();
+                  }
+              }).fail(function(){
+                 //do nothing ....
+                  console.log('failed...');
+                  return;
+              });
+      };
+  </script>
     <script src="/scannerResources/qrCodeScanner.js"></script>
-    <script>
-      function submitOrders(){
-    //ajax call
-     $.ajax({
-              url: '/postOrder',
-              method:'POST',
-              data: {
-                 items: document.getElementById('ordersID').innerHTML
-               }
-            }).done(function(data){
-                if(data.success){
-                    console.log("Success");
-                    location.reload();
-                }
-            }).fail(function(){
-               //do nothing ....
-                console.log('failed...');
-                return;
-            });
-    };
-</script>
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> 
+    <script src="js/inventory.js"></script>
   </body>
   </div>
 </html>
