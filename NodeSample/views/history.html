@@ -16,7 +16,7 @@
 
 
 <div class="page-container">
-<body class="body">
+<body class="body" onload="changeDom()">
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand head" action="dashboard" onclick="window.location.href='/dashboard'"><img src="/images/food4allkidslogoSmall.png" alt="logo">
@@ -58,7 +58,7 @@
                 <div class="col-lg-9">
                     <h2 class="title-1 m-b-25">Recent Orders</h2>
                     <div class="table-responsive table--no-card m-b-40">
-                        <table class="table table-borderless table-striped table-earning">
+                        <table id="ordersTable" class="table table-borderless table-striped table-earning">
                             <thead>
                                 <tr>
                                     <th>Food Name</th>
@@ -67,56 +67,7 @@
                                     <th>Order ID</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Canned Broccoli</td>
-                                    <td>04/22/2021</td>
-                                    <td>1</td>
-                                    <td class="text-right">26485</td>
-                                </tr>
-                                <tr>
-                                    <td>Spaghetti</td>
-                                    <td>05/21/2021</td>
-                                    <td>2</td>
-                                    <td class="text-right">34622</td>
-                                </tr>
-                                <tr>
-                                    <td>Cheesecake Mix</td>
-                                    <td>04/19/2021</td>
-                                    <td>4</td>
-                                    <td class="text-right">26453</td>
-                                </tr>
-                                <tr>
-                                    <td>Pizza Sauce</td>
-                                    <td>04/05/2021</td>
-                                    <td>8</td>
-                                    <td class="text-right">34325</td>
-                                </tr>
-                                <tr>
-                                    <td>Bread</td>
-                                    <td>03/06/2021</td>
-                                    <td>4</td>
-                                    <td class="text-right">34345</td>
-                                </tr>
-                                <tr>
-                                    <td>Meatballs</td>
-                                    <td>06/15/2021</td>
-                                    <td>10</td>
-                                    <td class="text-right">67646</td>
-                                </tr>
-                                <tr>
-                                    <td>Canned Corn</td>
-                                    <td>03/21/2021</td>
-                                    <td>2</td>
-                                    <td class="text-right">19854</td>
-                                </tr>
-                                <tr>
-                                    <td>Salad Dressing</td>
-                                    <td>05/31/2021</td>
-                                    <td>1</td>
-                                    <td class="text-right">00393</td>
-                                </tr>
-                            </tbody>
+                            
                         </table>
                     </div>
                 </div>
@@ -140,19 +91,25 @@
 
 <!-- checkbox script -->
 <script>
-    $(document).ready(function(){
-        $('input:checkbox').click(function() {
-            $('input:checkbox').not(this).prop('checked', false);
-        });
-    });
+    function changeDom(){
+             console.log('connecting');
+             //ajax call
+              $.ajax({
+                       url: '/loadSpecificUser',
+                       method:'POST'
+                     }).done(function(data){
+                         if(data.success){
+                             $('#ordersTable').append(data.message);
+                             return;
+                         }
+                     }).fail(function(){
+                        //do nothing ....
+                         console.log('failed...');
+                         return;
+                     });
+             };
     </script>
-    <script>
-        $(document).ready(function(){
-            $('.check').click(function() {
-                $('.check').not(this).prop('checked', false);
-            });
-        });
-    </script>
+   
 
  
 </body>

@@ -49,8 +49,7 @@
             <!-- table start -->
             <div class="row">
                 <div class="col-lg-9">
-                    <h2 class="title-1 m-b-25">Recent Orders</h2>
-                    <button id="refreshOrder" onclick="">Refresh Recent Orders</button>
+                    <h2 class="title-1 m-b-25">User Information</h2>
                     <div class="table-responsive table--no-card m-b-40">
                         <table onload="loadUsers()" id="usersTable" class="table table-borderless table-striped table-earning">
                             <thead>
@@ -109,6 +108,7 @@
                        method:'POST'
                      }).done(function(data){
                          if(data.success){
+                             console.log(data.message);
                              $('#usersTable ').append(data.message);
                             
                              return;

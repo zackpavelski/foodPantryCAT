@@ -84,6 +84,7 @@ exports.setRequestUrl=function(app){
     });
     app.post('/loadOrders', function(req,response)
     {   
+        
         var arr = '';
         var connection = mysql.createConnection({
             host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
@@ -118,7 +119,7 @@ exports.setRequestUrl=function(app){
                 var row = result[i];
                 arr += ('<tr> <td>'+row.name +'</td> <td>'+ row.items + ' </td> <td>'+ row.date +' </td> <td>'+ row.id +'</td> <td> '+row.school+'</td> </tr>');
             }
-            response.send({success: true, message: arr});
+            response.send({success: true, message: arr, message2: localStorage.getItem('name')});
 
         })
         
@@ -134,13 +135,65 @@ exports.setRequestUrl=function(app){
         });
         connection.query('SELECT * FROM pantryUsers', function(err, result){
             if(err) throw err;
+            console.log(result);
             for(var i = 0; i<= result.length; i++){
                 var row = result[i];
+                console.log('name: ' + row.fullName);
+                if(row.fullName == undefined || row.fullName == '' || row.username == undefined || row.username == '') {
+                    result.splice(i, 1);
+                    continue;
+                }
+                arr += '<tr><td>'+row.fullName+'</td><td>'+row.username+'</td><td>'+row.numPeople+'</td><td>'+row.numMinors+'</td><td>'+row.zipCode+'</td><td>'+row.school+'</td></tr>';
+                
                 //fullName, username, numPeople, numMinors, zipCode, school
-                arr += '<tr><td>'+row.fullName+'</td><td>'+row.username+'</td><td>'+row.numPeople+'</td><td>'+row.numMinors+'</td><tr>'+row.zipCode+'</tr><tr>'+row.school+'</tr></tr>';
             }
+            console.log(arr);
             response.send({success: true, message: arr});
         })
+    });;
+    app.post('/loadSpecificUser', function(req, response){
+        var arr = '';
+        var connection = mysql.createConnection({
+            host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
+            port: '3306',
+            user: 'pantryAdmin',
+            password: 'Pantry21!',
+            database: 'pantrydb'
+        });
+        var name = localStorage.getItem('name');
+        var school = localStorage.getItem('school');
+        var sql;
+        switch (school) {
+            case school == 'Lakewood':
+                sql = `SELECT * FROM lhsOrders WHERE name = ${name}`;
+                break;
+            case school == 'Gibbs':
+                sql = `SELECT * FROM gibsOrders WHERE name = ${name}`;
+                break;
+            case school == 'Hollins':
+                sql = `SELECT * FROM hollinsOrders WHERE name = ${name}`;
+                break;
+            default:
+                break;
+        }
+        try{
+            connection.query(sql, function(err, result){
+                if(err) throw err;
+                for(var i = 0; i <=result.length; i++){
+                    var row = result[i];
+                    //name date foodname id
+                    //arr += ('<tr> <td>'+row.name +'</td> <td>'+ row.items + ' </td> <td>'+ row.date +' </td> <td>'+ row.id +'</td> <td> '+row.school+'</td> </tr>');
+    
+                    arr+=`<tr><td>${row.name}</td><td>${row.date}</td></td>${row.items}</td><td>${row.id}<td></tr>`;
+                }
+                response.send({success: true, message: arr});
+            })
+        }
+        catch(e){
+            response.send({success: true, message: arr})
+        }
+        
+        
     });;
     app.post('/loadFavorites', function(req, response){
         var arr = '';
@@ -340,15 +393,38 @@ exports.setRequestUrl=function(app){
 
         today = mm + '/' + dd + '/' + yyyy;
         var sql;
+        var sql2;
         switch (school) {
             case school == 'Gibbs':
                 sql = `INSERT INTO gibsOrders (name, items, date, school) VALUES ('${name}', '${itemList}', '${today}', '${school}')`;
+                //NEED TO UPDATE INVENTORY
+                //item_name item_quantity school
+                for(var elem in itemList.split(',')){
+                    sql2 = `UPDATE gibsInventory SET item_quantity = item_quantity - 1 WHERE item_name = ${elem}`; 
+                    connection.query(sql2, function(error, result){
+                        if(error) throw error;
+                    })
+                }
                 break;
             case school == 'Hollins':
                 sql = `INSERT INTO hollinsOrders (name, items, date, school) VALUES ('${name}', '${itemList}', '${today}', '${school}')`;
+                //NEED TO UPDATE INVENTORY
+                for(var elem in itemList.split(',')){
+                    sql2 = `UPDATE hollinsInventory SET item_quantity = item_quantity - 1 WHERE item_name = ${elem}`; 
+                    connection.query(sql2, function(error, result){
+                        if(error) throw error;
+                    })
+                }
                 break;
             case school = 'Lakewood':
                 sql = `INSERT INTO lhsOrders (name, items, date, school) VALUES ('${name}', '${itemList}', '${today}', '${school}')`;
+                //NEED TO UPDATE INVENTORY
+                for(var elem in itemList.split(',')){
+                    sql2 = `UPDATE lhsInventory SET item_quantity = item_quantity - 1 WHERE item_name = ${elem}`; 
+                    connection.query(sql2, function(error, result){
+                        if(error) throw error;
+                    })
+                }
                 break;
             default:
                 break;
@@ -391,7 +467,12 @@ exports.setRequestUrl=function(app){
                 //REDIRECT TO DASHBOARD
                 localStorage.setItem('name', req.body.username);
                 localStorage.setItem('school', results[0].school);
-                response.redirect('/dashboard');
+                if(!(req.body.username == 'admin')){
+                    response.redirect('/studentDash');
+                }
+                if(req.body.username == 'admin'){
+                    response.redirect('/dashboard');    
+                }
 
             } else {
                 response.redirect('/');

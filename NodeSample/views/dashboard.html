@@ -242,6 +242,9 @@
                      }).done(function(data){
                          if(data.success){
                              $('#recentOrders').append(data.message);
+                             if(!(data.message2 == 'admin')){
+                                window.location.href='/studentDash';
+                             }
                              changeDom2();
                              return;
                          }
@@ -260,6 +263,7 @@
                      }).done(function(data){
                          if(data.success){
                              $('#favoritesTable').append(data.message);
+                             
                              return;
                          }
                      }).fail(function(){
