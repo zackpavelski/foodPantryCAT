@@ -17,6 +17,9 @@ body {
   left: 0;
  
 }
+a {
+  text-align:center;
+}
 h1 {
   text-align: center; 
   font-size: 40px; 
@@ -101,7 +104,7 @@ button {
   opacity: 1;
   background: transparent;
   border: solid 2px #fff;
-  padding: 0;
+  margin: 10px;
   text-shadow: 0px 0px 4px black;
   background-position: center center;
   background-repeat: no-repeat;
@@ -199,6 +202,7 @@ button {
   /*box-shadow: 0 5px 10px 0 #F9C506;*/ /*Use to add a box shadow*/
   position: relative;
 }
+/*
 td {
   text-align:left;
 }
@@ -210,12 +214,97 @@ table
   margin-right: auto;
   margin-left: auto;
   display: block;
-  /*margin-top: 15vh;*/
+  /*margin-top: 15vh;
   overflow: scroll;
 }
 
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+*/
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 32%;
+}
+
+td, th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+  width: 12%;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+  width: 12%;
+}
+
 text{
-  margin: auto 0 auto 0;
   font-size:50px;
   Font-weight: bold;
+  width: 32%;
 }
+
+/*qty number*/
+/* -- qty increment counter -- */
+
+.quantity {
+  display: inline-block; }
+ 
+ .quantity .input-text.qty {
+  width: 35px;
+  height: 39px;
+  padding: 0 5px;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid #efefef;
+ }
+ 
+ .quantity.buttons_added {
+  text-align: left;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: top; }
+ 
+ .quantity.buttons_added input {
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  box-shadow: none;
+ }
+ 
+ .quantity.buttons_added .minus,
+ .quantity.buttons_added .plus {
+  padding: 7px 10px 8px;
+  height: 41px;
+  background-color: #ffffff;
+  border: 1px solid #efefef;
+  cursor:pointer;}
+ 
+ .quantity.buttons_added .minus {
+  border-right: 0; }
+ 
+ .quantity.buttons_added .plus {
+  border-left: 0; }
+ 
+ .quantity.buttons_added .minus:hover,
+ .quantity.buttons_added .plus:hover {
+  background: #eeeeee; }
+ 
+ .quantity input::-webkit-outer-spin-button,
+ .quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0; }
+  
+  .quantity.buttons_added .minus:focus,
+ .quantity.buttons_added .plus:focus {
+  outline: none; }
+ 
+ 
