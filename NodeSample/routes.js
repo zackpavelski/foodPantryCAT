@@ -137,13 +137,19 @@ exports.setRequestUrl=function(app){
             if(err) throw err;
             console.log(result);
             for(var i = 0; i<= result.length; i++){
-                var row = result[i];
-                console.log('name: ' + row.fullName);
-                if(row.fullName == undefined || row.fullName == '' || row.username == undefined || row.username == '') {
-                    result.splice(i, 1);
+                try{
+                    var row = result[i];
+                    console.log('name: ' + row.fullName);
+                    if(row.fullName == undefined || row.fullName == '' || row.username == undefined || row.username == '') {
+                        result.splice(i, 1);
+                        continue;
+                    }
+                    arr += '<tr><td>'+row.fullName+'</td><td>'+row.username+'</td><td>'+row.numPeople+'</td><td>'+row.numMinors+'</td><td>'+row.zipCode+'</td><td>'+row.school+'</td></tr>';
+                }catch(e){
+                    console.log('Empty User');
                     continue;
+            
                 }
-                arr += '<tr><td>'+row.fullName+'</td><td>'+row.username+'</td><td>'+row.numPeople+'</td><td>'+row.numMinors+'</td><td>'+row.zipCode+'</td><td>'+row.school+'</td></tr>';
                 
                 //fullName, username, numPeople, numMinors, zipCode, school
             }
@@ -175,25 +181,43 @@ exports.setRequestUrl=function(app){
                 break;
             default:
                 break;
-        }
+        };
         try{
             connection.query(sql, function(err, result){
-                if(err) throw err;
-                for(var i = 0; i <=result.length; i++){
-                    var row = result[i];
-                    //name date foodname id
-                    //arr += ('<tr> <td>'+row.name +'</td> <td>'+ row.items + ' </td> <td>'+ row.date +' </td> <td>'+ row.id +'</td> <td> '+row.school+'</td> </tr>');
-    
-                    arr+=`<tr><td>${row.name}</td><td>${row.date}</td></td>${row.items}</td><td>${row.id}<td></tr>`;
-                }
-                response.send({success: true, message: arr});
+                if(err) {
+                    //pass
+                  } else if (!row.length) {
+                    //pass 
+                    response.send({success: true, message: arr});
+                    return;
+                  } else if (!row[0].something) {
+                    //pass
+                    response.send({success: true, message: arr});
+                    return;
+                  }else{
+                    for(var i = 0; i<= result.length; i++){
+                        try{
+                            var row = result[i];
+                            console.log('name: ' + row.fullName);
+                            if(row.fullName == undefined || row.fullName == '' || row.username == undefined || row.username == '') {
+                                result.splice(i, 1);
+                                continue;
+                            }
+                            arr+=`<tr><td>${row.name}</td><td>${row.date}</td></td>${row.items}</td><td>${row.id}<td></tr>`;
+                        }catch(e){
+                            console.log('Empty User');
+                            continue;
+                        }
+                        //fullName, username, numPeople, numMinors, zipCode, school
+                    }
+                    console.log(arr);
+                    response.send({success: true, message: arr});
+                  }                
             })
+        }catch(e){
+            console.log('Empty Query');
+            response.send({success: true, message: arr});
         }
-        catch(e){
-            response.send({success: true, message: arr})
-        }
-        
-        
     });;
     app.post('/loadFavorites', function(req, response){
         var arr = '';
@@ -307,7 +331,7 @@ exports.setRequestUrl=function(app){
             }
             
             var username = req.body.username;
-            var fullName = req.body.firstName + req.body.lastName;
+            var fullName = req.body.firstName + ' ' + req.body.lastName;
             var password;
             var saltRounds = 4;
             bcrypt.hash(req.body.new_password, saltRounds, function(err, hash) {
@@ -315,7 +339,7 @@ exports.setRequestUrl=function(app){
                 password = hash;
               });
 
-            var sql = `UDPATE pantryUsers SET fullName = '${firstName + lastName}', username = '${username}', password = '${password}' WHERE username = '${username}'`;
+            var sql = `UPDATE pantryUsers SET fullName = '${fullName}', username = '${username}', password = '${password}' WHERE username = '${username}'`;
             connection.query(sql, function (err, result) {
                 if (err) throw err;
                 console.log("1 record inserted");
@@ -467,10 +491,10 @@ exports.setRequestUrl=function(app){
                 //REDIRECT TO DASHBOARD
                 localStorage.setItem('name', req.body.username);
                 localStorage.setItem('school', results[0].school);
-                if(!(req.body.username == 'admin')){
+                if(!(req.body.username == 'admin' &&((req.body.username.includes('adm'))))){
                     response.redirect('/studentDash');
                 }
-                if(req.body.username == 'admin'){
+                if(req.body.username == 'admin' || req.body.username.includes('adm')){
                     response.redirect('/dashboard');    
                 }
 
