@@ -32,6 +32,9 @@ exports.signup = function(req, res, next){
 exports.users = function(req, res, next){
     res.render('users.html', {message:""});
 }
+exports.feedback = function(req, res, next){
+    res.render('feedback.html', {message:""});
+}
 exports.history = function(req, res, next){
     res.render('history.html', {message:""});
 }

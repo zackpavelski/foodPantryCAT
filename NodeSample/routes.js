@@ -40,6 +40,7 @@ exports.setRequestUrl=function(app){
     app.get('/account', user.account);
     app.get('/signup', user.signup);
     app.get('/users', user.users);
+    app.get('/feedback', user.feedback);
     app.get('/history', user.history);
     app.get('/switch', user.switch);
     app.get('/forgotPass', user.forgotPass);
