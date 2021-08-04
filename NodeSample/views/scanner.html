@@ -40,49 +40,24 @@
     </nav>
     <!--navbar ends-->
 
+    <p id="ordersID" style="display: none"></p>
 
     <div id="container">
+
       <h1 id="header">Food Scanner</h1>
+
       <div id="vid_container" style="z-index: 2; width: auto; height: 100vh; margin-top: -5vh;">
         <a id="btn-scan-qr"></a>
         <canvas id="qr-canvas" style="margin-top: 5vh; width: 50vmax; z-index: 20; margin-left: auto; margin-right: auto; display: block; border-radius: 25px; border-color:  rgb(255, 159, 0); border-width: thick; border-style: solid; margin-top: 50px;" height="480" width="640"></canvas>
-
         <!--This is the table that the items get put into-->
         <text>Items</text>
-        <br>
-        <a href="#openModal">Scanner not working? Click here to manually add items.</a>
-        <div id="openModal" class="modalDialog">
-          <div>
-            <a href="#close" title="Close" class="close">X</a>
-            <h2 style="padding-top: 10px;">Add item</h2>
-            <div class="form">
-              <form action="/action_page.php">
-                <label for="item">Item:</label>
-                <input type="text" id="item" name="food" placeholder="Banana, Canned Corn, etc...">
-            
-                <label for="lname">Macro:</label>
-                <select id="macro" name="macro">
-                  <option value="carb">Carb (ex. Bread, Pasta, Cereal)</option>
-                  <option value="protein">Protein (ex. Meat or Eggs)</option>
-                  <option value="fat">Fat (ex. Oils, Dairy, Nuts)</option>
-                </select>
-            
-                <label for="qty">Qty:</label>
-                <input type="text" id="qty" name="qty" placeholder="1, 2, 3, etc...">
-
-              
-                <input type="submit" value="Add to Cart">
-              </form>
-            </div>
-          </div>
-        </div>
         
         <div id="Table" style="padding:15px;">
           <div id="listID" style="font-family: 'Noto Sans', 'Helvetica'; font-size: 20px; color:  #236dad; margin-top: -4vh; text-align: center; margin-right: auto; margin-left: auto; display: block;">
-            <div id="enterQty" style="margin-top: 5%;"
+            <div id="enterQty" style="margin-top: 5%;">
             <label>Qty of item being scanned:</label>
             <div class="quantity buttons_added">
-              <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+              <input type="button" value="-" class="minus"><input type="number" id="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
             </div>
             </div>
             <table id="itemTable" style="font-family: 'Noto Sans', 'Helvetica';font-size: 5vw;color: black; position: relative; margin-top: 5px; margin-left: 34%; margin-right:30%;">
@@ -90,24 +65,10 @@
                 <th>Foods Scanned</th>
                 <th>Qty</th>
             </tr>
-              <tbody>
-              <tr>
-                <!--Items text moved above-->
-              </tr>
-            
-            </tbody>
+              
           </table>
-            
-              <tr>
-                <div style="margin-left: auto; margin-right: auto; display: block">
-              </div>
-              <td> 
-                <!-- qty increment counter -->
-                
-              </td>
-              </tr>
-            
-            </table>
+             
+          
             <button id="orderFin" style="scroll-margin-bottom:0vh; width: auto; margin-right: auto; margin-left: auto; display: block;">Finish Order</button>
           
           </div>
@@ -130,14 +91,28 @@
     
     <script src="/scannerResources/qrCodeScanner.js"></script>
     <script>
-
-
+        function submitOrders(){
+    //ajax call
+     $.ajax({
+              url: '/postOrder',
+              method:'POST',
+              data: {
+                 items: document.getElementsByTagName("p")[0].innerHTML
+               }
+            }).done(function(data){
+                if(data.success){
+                    console.log("Success");
+                    location.reload();
+                }
+            }).fail(function(){
+               //do nothing ....
+                console.log('failed...');
+                return;
+            });
+    };
       </script>
 
-  <footer style="position: absolute; width: 100%; height: 2.5rem; bottom: 0%;">
-    <p>Food 4 All Kids - a website created by students, for the students. Project supported by <a href="https://www.hopkinsallchildrens.org/">John Hopkins All Children's Hospital.</a></p>
-    <!--<a href='/feedback'>Want to leave feedback?</a>-->
-  </footer>
+  
 
   </body>
   </div>

@@ -34,6 +34,7 @@ String.prototype.getDecimals || (String.prototype.getDecimals = function() {
 
 
 let scanning = false;
+var lastQuantity = "";
 var lastScanned = "";
 var items = [];
 
@@ -60,14 +61,18 @@ qrcode.callback = res => {
     items.push(res);
     console.log(res);
     console.log('adding!'); 
-    if(!(lastScanned == res)){
+    //add only if the quantity is different and the item is different
+    if(!(lastScanned == res) || !(document.getElementById('number').value == lastQuantity)){
       const inner = document.getElementById('itemTable').insertRow();
-      document.getElementById("ordersID").innerHTML += res + ', ';
+      
       const cell1 = inner.insertCell(0);
       const cell2 = inner.insertCell(1);
       cell1.innerHTML = res;
-      cell2.innerHTML = inc;
+      cell2.innerHTML = document.getElementById('number').value;
 
+      var repeat = (res + ', ').repeat(document.getElementById('number').value);
+      document.getElementsByTagName("p")[0].innerHTML += repeat;
+      console.log(repeat);
       
       //if the qr code scans out to a function call, exec()
       if(res.includes("()")){
@@ -75,6 +80,7 @@ qrcode.callback = res => {
       }
     }
     lastScanned = res;
+    lastQuantity = document.getElementById('number').value;
     tick();
     scan();
   }
