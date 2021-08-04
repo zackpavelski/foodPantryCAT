@@ -35,12 +35,12 @@ connection.connect(function(err){
     var sql = "CREATE TABLE orders (id INT, name VARCHAR(255), items VARCHAR(255))";
     var add = "CREATE TABLE orders (id int(11) NOT NULL AUTO_INCREMENT, name VARCHAR(100), items VARCHAR(255), date VARCHAR(255), PRIMARY KEY(id))"
 
-    connection.query("DESCRIBE pantryUsers", function(err, result){
+    connection.query("DESCRIBE feedback", function(err, result){
         if (err) throw err
         console.log(result);
     })
 
-    /*connection.query("CREATE TABLE hollinsInventory (id int(11) NOT NULL AUTO_INCREMENT, item_name VARCHAR(100), item_quantity VARCHAR(255), school VARCHAR(255), PRIMARY KEY(id))", function(err, result){
+    /*connection.query("CREATE TABLE feedback (id int(11) NOT NULL AUTO_INCREMENT, paragraph VARCHAR(1000), date VARCHAR(50), PRIMARY KEY(id))", function(err, result){
         if (err) throw err
         console.log(result);
     })*/
