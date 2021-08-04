@@ -242,7 +242,8 @@
                      }).done(function(data){
                          if(data.success){
                              $('#recentOrders').append(data.message);
-                             if(!(data.message2 == 'admin' || data.message2.includes('adm'))){
+                             console.log(data.message2);
+                             if(!(data.message2.includes('adm'))){
                                 window.location.href='/studentDash';
                              }
                              changeDom2();

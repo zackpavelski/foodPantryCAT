@@ -61,8 +61,8 @@ qrcode.callback = res => {
     console.log(res);
     console.log('adding!'); 
     if(!(lastScanned == res)){
-      console.log(res);
       const inner = document.getElementById('itemTable').insertRow();
+      document.getElementById("ordersID").innerHTML += res + ', ';
       const cell1 = inner.insertCell(0);
       const cell2 = inner.insertCell(1);
       cell1.innerHTML = res;
@@ -70,7 +70,6 @@ qrcode.callback = res => {
 
       
       //if the qr code scans out to a function call, exec()
-      //that function call should be endOrder();
       if(res.includes("()")){
         eval(res);
       }
