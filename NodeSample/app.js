@@ -28,6 +28,9 @@ app.set('views', __dirname + '/views');
 
 urlHelper.setRequestUrl(app);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+app.listen(3000, function() {
+  console.log("Server is running on port " + 3000);
 });
+//http.createServer(app).listen(app.get('port'), function(){
+ //console.log("Express server listening on port " + app.get('port'));
+//});
