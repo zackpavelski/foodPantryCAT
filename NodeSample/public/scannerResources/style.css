@@ -35,6 +35,12 @@ header
     background: #e5e5e5;
 }
 
+.navbar-toggler, .navbar-toggler-icon
+{
+    border:0px !important;
+    outline:0px !important;
+}
+
 #container {
   animation:transitionIn .75s;
 
@@ -195,12 +201,22 @@ button {
   background-color: #F9C506;
   color: white;
   font-size: 16px;
-  border-radius: 30px;
+  border-radius: 5px;
   border: none;
   padding: 15px 20px;
   text-align: center;
   /*box-shadow: 0 5px 10px 0 #F9C506;*/ /*Use to add a box shadow*/
   position: relative;
+  scroll-margin-bottom:0vh; 
+  margin-right: auto; 
+  margin-left: auto; 
+  display: block;
+
+  
+  
+  color: white;
+  border: none;
+  box-shadow: 2px 2px rgba(114, 114, 113, 0.3);
 }
 /*
 td {

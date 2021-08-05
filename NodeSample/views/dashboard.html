@@ -66,7 +66,9 @@
                 <a class="nav-item nav-link" action="inventory" onclick="window.location.href='/inventory'">Inventory</a>
                 <a class="nav-item nav-link" action="additem" onclick="window.location.href='/addItem'">Add Item</a>
                 <a class="nav-item nav-link" action="account" onclick="window.location.href='/account'">Account</a>
+                <a class="nav-item nav-link" action="feedback" onclick="window.location.href='/feedback'">Feedback</a>
                 <a class="nav-item nav-link" action="login" onclick="window.location.href='/'">Log Out</a><!--just temporary... :D-->
+                
             </div>
         </div>
     </nav>
@@ -156,7 +158,7 @@
                        <div class="row" style="max-width: fit-content; overflow: hidden;">
                             <div class="col-lg-9">
                                 <h2 class="title-1 m-b-25">Recent Orders</h2>
-                                <button id="refreh" onclick="changeDom()">Refresh Orders</button>
+                                <button id="refreh" onclick="changeDom()" style="width: 175px;">Refresh Orders</button>
                                 <button id="refreh" onclick="exportTableToExcel('recentOrders', 'recentOrders')" style="width: 200px; margin-left: -15px;">Download Recent Orders</button>
                                 <div class="table-responsive table--no-card m-b-40" style="max-width: 110%;overflow-x:auto;">
                                     <table id="recentOrders" class="table table-borderless table-striped table-earning">

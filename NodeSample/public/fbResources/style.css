@@ -60,4 +60,21 @@
     content: "";    
     display: table;    
     clear: both;    
-  }    
+  }
+  
+  #submit
+  {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 200px;
+  margin-bottom: 5px;
+  padding: 8px;
+  background-color: #ffc600; 
+  color: white;
+  border: none;
+  font-size: large;
+  border-radius: 5px;
+  box-shadow: 2px 2px rgba(114, 114, 113, 0.3);
+  }
