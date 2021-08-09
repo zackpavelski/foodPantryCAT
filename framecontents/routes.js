@@ -374,6 +374,55 @@ exports.setRequestUrl=function(app){
         
     
     });
+    app.post('/loadzip', function(req, response){
+        var connection = mysql.createConnection({
+            host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',
+            port: '3306',
+            user: 'pantryAdmin',
+            password: 'Pantry21!',
+            database: 'pantrydb'
+        });
+        connection.connect(function(err){
+            if(err){
+                console.error('Db connection failed: ' + err.stack);
+                return;
+            }
+        });
+        connection.query("SELECT * FROM pantryUsers", function(err, result){
+            var zip = [];
+            var zipNums = [];
+            var strFinal = '';
+            var avgInt = 0;
+            if(err) throw err;
+            for(var i = 0; i <= result.length - 1; i++){
+    
+                res = result[i];
+                console.log(res.zipCode);
+                if(zip.includes(res.zipCode)){
+                    zipNums[zip.indexOf(res.zipCode)] += 1;
+                }else{
+                    zip.push(res.zipCode);
+                    zipNums.push(1);
+                }
+            }
+            strFinal+= 'var chart = new CanvasJS.Chart("chartContainer", {	backgroundColor: (0, 0, 0), animationEnabled: true, title: {text: "Popular Zip Codes" }, data: [{ type: "pie", startAngle: 240, yValueFormatString: "##0.00\"%\"", indexLabel: "{label} {y}", dataPoints: [';
+            //{y: 79.45, label: "Google"},
+            for(var i = 0; i <= zipNums.length - 1; i++){
+                var num = zipNums[i];
+                avgInt+= num;
+                console.log(num);   
+            } 
+            for(var i = 0; i <= zip.length -1; i++){          
+                        var elem = zip[i];
+                        
+                        if(!(elem === 333 || elem === '333' || elem === '' || elem === ' ')) strFinal += `{y: ${zipNums[i]/avgInt}, label: "${elem}"},`;
+
+            }
+            strFinal.replace(/_([^,]*)$/, ' ' + '$1');
+            strFinal+=']}]}); chart.render();';
+            response.send({success: true, message: strFinal});
+        });
+    });
     app.post('/postFeedback', function(req, reqponse){
         var connection = mysql.createConnection({
             host: 'pantrydb.cvskfciqfnj6.us-east-1.rds.amazonaws.com',

@@ -37,7 +37,7 @@
 
 </head>
 
-<body class="body" onload="changeDom()">
+<body class="body" onload="changeDom4()">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
             
@@ -194,7 +194,10 @@
                                             </table>
                                         </div>
                                     </div>
+
                                 </div>
+                                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
                             </div>
                         </div>
                         <br>
@@ -252,7 +255,6 @@
                              if(!(data.message2.includes('adm'))){
                                 window.location.href='/studentDash';
                              }
-                             //changeDom2();
                              return;
                          }
                      }).fail(function(){
@@ -279,6 +281,25 @@
                          return;
                      });
              };
+             function changeDom4(){
+            console.log('connecting');
+             //ajax call
+              $.ajax({
+                       url: '/loadzip',
+                       method:'POST'
+                     }).done(function(data){
+                         if(data.success){
+                             console.log(data.message);
+                             eval(data.message);
+                             changeDom();
+                             return;
+                         }
+                     }).fail(function(){
+                        //do nothing ....
+                         console.log('failed...');
+                         return;
+                     });
+             };
         function popup()
         {
             window.alert("Button Clicked");
@@ -286,7 +307,7 @@
     </script>
     <script src="js/jquery-3.3.1.slim.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script> 
     <script src="js/inventory.js"></script>
